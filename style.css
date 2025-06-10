@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.7;
+  background-color: #fdfdfd;
+  color: #111;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #eaeaea;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.main-header {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+body.dark .main-header {
+  background: #1e1e1e;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #00bcd4;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #333;
+  font-weight: 600;
+  position: relative;
+}
+
+body.dark nav a {
+  color: #eaeaea;
+}
+
+nav a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #00bcd4;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #00bcd4;
+}
+
+.hero-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
+}
+
+body.dark .hero-section {
+  background: linear-gradient(135deg, #1f1f1f, #292929);
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-content .text {
+  flex: 1 1 50%;
+}
+
+.hero-content .text h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.highlight {
+  color: #00bcd4;
+}
+
+.hero-content .text p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: #00bcd4;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.hero-content .image img {
+  max-width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-me, .skills-section, .map-section, #contact {
+  padding: 60px 0;
+}
+
+.about-me h2, .skills-section h2, .map-section h2, #contact h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #00bcd4;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.skill-card {
+  background: #f0f9ff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+body.dark .skill-card {
+  background: #1d1d1d;
+  color: #ccc;
+}
+
+.skill-card i {
+  color: #00bcd4;
+  margin-bottom: 10px;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.map iframe {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+#contact a {
+  color: #00bcd4;
+  font-weight: 600;
+}
+
+#contact p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.main-footer {
+  background: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+body.dark .main-footer {
+  background: #111;
+  color: #999;
+}
+
+#flutterRain {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+/* زر القائمة */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #00bcd4;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    padding: 10px 0;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  body.dark nav ul {
+    background: #1e1e1e;
+  }
+}

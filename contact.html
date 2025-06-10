@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تواصل معي | أيمن توفيق</title>
+
+  <!-- Font Awesome + Cairo + AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <!-- External Header Style -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    :root {
+      --primary: #00bcd4;
+      --light-bg: #ffffff;
+      --dark-bg: #121212;
+      --light-text: #111;
+      --dark-text: #eee;
+      --form-light: #f5f5f5;
+      --form-dark: #1f1f1f;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      background: var(--light-bg);
+      color: var(--light-text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+  
+
+    h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 26px;
+    }
+
+    form {
+      background: var(--form-light);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: background 0.3s;
+    }
+
+    body.dark form {
+      background: var(--form-dark);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: white;
+    }
+
+    body.dark input, body.dark textarea {
+      background: #2a2a2a;
+      color: var(--dark-text);
+      border: 1px solid #555;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 5px rgba(0,188,212,0.5);
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      padding: 14px 30px;
+      font-size: 17px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #0097a7;
+    }
+
+    .map {
+      margin-top: 40px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #25D366;
+      color: white;
+      font-size: 26px;
+      padding: 14px 18px;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      text-decoration: none;
+      animation: pulse 2s infinite;
+      z-index: 999;
+    }
+
+    .whatsapp-btn:hover {
+      background: #20ba57;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 14px;
+      background: #f1f1f1;
+      margin-top: 50px;
+    }
+
+    body.dark footer {
+      background: #1e1e1e;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+        gap: 10px;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="main-header">
+  <div class="container nav-container">
+   
+
+    <!-- زر القائمة للهاتف -->
+    <button class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+ <h1 class="logo">أيمن توفيق</h1>
+    <!-- روابط التنقل -->
+    <nav id="main-nav">
+      <ul id="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="about.html">من أنا</a></li>
+        <li><a href="projects.html">المشاريع</a></li>
+        <li><a href="skills.html">المهارات</a></li>
+        <li><a href="contact.html">تواصل</a></li>
+      </ul>
+    </nav>
+
+    <button id="theme-toggle">🌙</button>
+  </div>
+</header>
+<section class="container">
+  <h2 data-aos="fade-down">تواصل معي</h2>
+
+  <form data-aos="fade-up" id="contact-form">
+    <div class="form-group">
+      <label for="name">الاسم</label>
+      <input type="text" id="name" name="name" required placeholder="اكتب اسمك الكامل" />
+    </div>
+    <div class="form-group">
+      <label for="email">البريد الإلكتروني</label>
+      <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+    </div>
+    <div class="form-group">
+      <label for="message">رسالتك</label>
+      <textarea id="message" name="message" required placeholder="اكتب رسالتك هنا..."></textarea>
+    </div>
+    <button type="submit" class="submit-btn">إرسال</button>
+  </form>
+
+  <div class="map" data-aos="zoom-in">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15390.251884512027!2d44.24026568472629!3d15.459905279829796!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDI3JzM1LjYiTiA0NMKwMTQnMjQuOSJF!5e0!3m2!1sar!2s!4v1717879090000!5m2!1sar!2s"
+      width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<a href="https://wa.me/967770883615" class="whatsapp-btn" target="_blank" title="راسلني على واتساب">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<footer>
+  <p>© 2025 أيمن توفيق عبدالودود - جميع الحقوق محفوظة</p>
+</footer>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000 });
+</script>
+
+<!-- Theme Toggle -->
+<script>
+  const toggleBtn = document.getElementById("theme-toggle");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+  });
+</script>
+
+<!-- Redirect to Thank You Page -->
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    window.location.href = "thankyou.html";
+  });
+
+   const menuBtn = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+</script>
+
+</body>
+</html>
