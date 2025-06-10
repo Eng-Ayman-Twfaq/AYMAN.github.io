@@ -2,9 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>مشاريعي | أيمن توفيق</title>
-
+  
   <!-- CSS خارجي -->
   <link rel="stylesheet" href="style.css" />
   
@@ -15,79 +15,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   
   <!-- خط عربي جميل -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: 0.3s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .project-card h3 {
-      color: var(--primary-color);
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .project-card p {
-      font-size: 15px;
-      flex-grow: 1;
-    }
-
-    .project-card .tags {
-      margin-top: 15px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--primary-color);
-      color: white;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 13px;
-      margin-right: 5px;
-      margin-top: 5px;
-    }
-
-    .project-card a {
-      margin-top: 15px;
-      text-decoration: none;
-      color: white;
-      background: var(--primary-color);
-      padding: 8px 12px;
-      border-radius: 8px;
-      display: inline-block;
-      text-align: center;
-    }
-
-    /* ألوان الوضع الليلي والنهاري */
-    body.light {
+    :root {
       --primary-color: #00bcd4;
       --bg-color: #ffffff;
       --text-color: #111111;
       --card-bg: #f5f5f5;
+      --tag-bg: #e0f7fa;
     }
 
     body.dark {
@@ -95,141 +31,336 @@
       --bg-color: #121212;
       --text-color: #eeeeee;
       --card-bg: #1e1e1e;
+      --tag-bg: #004d40;
     }
 
-    /* body {
-      background-color: var(--bg-color);
+    .projects-section {
+      padding: 60px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      color: var(--primary-color);
+      font-size: 32px;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: 50%;
+      transform: translateX(50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 3px;
+    }
+
+    .section-header p {
       color: var(--text-color);
-      transition: 0.3s;
-    } */
-
-    header, footer {
-      background-color: var(--card-bg);
-      padding: 20px 0;
+      font-size: 17px;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    /* nav ul {
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
       display: flex;
-      gap: 20px;
-      list-style: none;
-      padding: 0;
+      flex-direction: column;
+      border: 1px solid rgba(0,188,212,0.1);
     }
 
-    nav ul li a {
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .project-image {
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-content h3 {
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .project-content p {
       color: var(--text-color);
-      text-decoration: none;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--primary-color);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 13px;
       font-weight: 600;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-    } */
-
-    #theme-toggle {
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: var(--text-color);
+    .project-links {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
     }
 
-    footer {
+    .project-links a {
+      flex: 1;
       text-align: center;
-      font-size: 14px;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .demo-link {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .demo-link:hover {
+      background: #0097a7;
+    }
+
+    .code-link {
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .code-link:hover {
+      background: rgba(0,188,212,0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      
+      .section-header h2 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .projects-section {
+        padding: 40px 0;
+      }
+      
+      .section-header {
+        margin-bottom: 30px;
+      }
+      
+      .project-image {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      
+      .section-header h2 {
+        font-size: 24px;
+      }
+      
+      .section-header p {
+        font-size: 16px;
+      }
+      
+      .project-content {
+        padding: 15px;
+      }
+      
+      .project-content h3 {
+        font-size: 18px;
+      }
+      
+      .project-links {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .project-image {
+        height: 140px;
+      }
+      
+      .tag {
+        font-size: 12px;
+        padding: 4px 10px;
+      }
     }
   </style>
 </head>
 
-<body class="light">
-<!-- تأثير المطر -->
+<body class="dark">
 <canvas id="flutterRain"></canvas>
 <header class="main-header">
   <div class="container nav-container">
-   
-
+    <h1 class="logo">أيمن توفيق</h1>
+    
     <!-- زر القائمة للهاتف -->
-    <button class="menu-toggle" id="menu-toggle">
+    <button class="menu-toggle" id="menu-toggle" aria-label="قائمة التنقل">
       <i class="fas fa-bars"></i>
     </button>
- <h1 class="logo">أيمن توفيق</h1>
+
+    <!-- زر تبديل الثيم -->
+    <button id="theme-toggle" aria-label="تبديل الوضع الليلي">
+      <i class="fas fa-sun"></i>
+    </button>
+
     <!-- روابط التنقل -->
     <nav id="main-nav">
       <ul id="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="about.html">من أنا</a></li>
-        <li><a href="projects.html">المشاريع</a></li>
-        <li><a href="skills.html">المهارات</a></li>
-        <li><a href="contact.html">تواصل</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+        <li><a href="about.html"><i class="fas fa-user"></i> من أنا</a></li>
+        <li><a href="projects.html" class="active"><i class="fas fa-code"></i> المشاريع</a></li>
+        <li><a href="skills.html"><i class="fas fa-cogs"></i> المهارات</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل</a></li>
       </ul>
     </nav>
-
-    <button id="theme-toggle">🌙</button>
   </div>
 </header>
 
-<section class="container" style="padding: 60px 0;" data-aos="fade-up">
-  <h2 style="color:var(--primary-color); font-size:28px;">📁 بعض من مشاريعي</h2>
-  <p style="margin-top:10px;">مشاريع قمت بتطويرها باستخدام تقنيات متعددة، بعضها مفتوح المصدر على GitHub:</p>
+<section class="projects-section container">
+  <div class="section-header" data-aos="fade-up">
+    <h2><i class="fas fa-project-diagram"></i> مشاريعي</h2>
+    <p>مجموعة من المشاريع التي قمت بتطويرها باستخدام تقنيات متعددة، بعضها مفتوح المصدر على GitHub</p>
+  </div>
 
   <div class="projects-grid">
 
     <div class="project-card" data-aos="zoom-in">
-      <h3>لوحة تحكم متكاملة </h3>
-      <p>لإدارة منصتي:
-
-🛍️ تطبيق العملاء (واجهة شراء المنتجات)
-🏪 تطبيق التاجر (إدارة المخزون والطلبات)
-☁️ الخدمات السحابية (Firebase, MySQL)
-</p>
-      <div class="tags">
-        <span class="tag">Laravel</span>
-        <span class="tag">VueJS</span>
-        <span class="tag">MySQL</span>
+      <div class="project-image">
+        <img src="assets/homel.png" alt="لوحة تحكم متكاملة" loading="lazy"/>
       </div>
-      <a href=" https://github.com/Eng-Ayman-Twfaq/ExplorePC_Dashboard" target="_blank"><i class="fab fa-github"></i> عرض على GitHub</a>
+      <div class="project-content">
+        <h3>لوحة تحكم متكاملة</h3>
+        <p>نظام إدارة شامل يحتوي على تطبيق للعملاء للتسوق، تطبيق للتجار لإدارة المخزون والطلبات، وخدمات سحابية باستخدام Firebase وMySQL.</p>
+        <div class="tags">
+          <span class="tag">Laravel</span>
+          <span class="tag">npm</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">node</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC_Dashboard" class="demo-link" target="_blank"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC_Dashboard" class="code-link" target="_blank"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
     </div>
 
-    <div class="project-card" data-aos="zoom-in">
-      <h3>تطبيق Flutter لإدارة متجر ExplorePC</h3>
-      <p>يتيح للتجار:
-
-📦 إدارة المنتجات (إضافة/تعديل/حذف)
-🚚 متابعة الطلبات وتحديث حالاتها
-📊 عرض إحصائيات المبيعات والربح</p>
-      <div class="tags">
-        <span class="tag">Flutter</span>
-        <span class="tag">MySQL</span>
-        <span class="tag">Laravel</span>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+      <div class="project-image">
+        <img src="assets/Home.jpg" alt="تطبيق Flutter" loading="lazy"/>
       </div>
-      <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-marchins_App" target="_blank"><i class="fab fa-github"></i> عرض على GitHub</a>
+      <div class="project-content">
+        <h3>تطبيق Flutter للتجار</h3>
+        <p>تطبيق متكامل لإدارة متجر ExplorePC يتيح للتجار إدارة المنتجات، متابعة الطلبات، وعرض إحصائيات المبيعات والربح.</p>
+        <div class="tags">
+          <span class="tag">Flutter</span>
+          <span class="tag">Laravel</span>
+          <span class="tag">API</span>
+          <span class="tag">MySQL</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-marchins_App" class="demo-link" target="_blank"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-marchins_App" class="code-link" target="_blank"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
     </div>
 
-    <div class="project-card" data-aos="zoom-in">
-      <h3>مشروع روبوت آلي</h3>
-      <p>روبوت يستخدم الحساسات والموتورات للتحكم بالاتجاه باستخدام Arduino و C++.</p>
-      <div class="tags">
-        <span class="tag">Arduino</span>
-        <span class="tag">C++</span>
-        <span class="tag">Sensors</span>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+      <div class="project-image">
+        <img src="assets/profile-placeholder.png" alt="روبوت آلي" loading="lazy"/>
       </div>
-      <a href="https://github.com/Eng-Ayman-Twfaq/SmartRobot" target="_blank"><i class="fab fa-github"></i> عرض على GitHub</a>
+      <div class="project-content">
+        <h3>روبوت آلي ذكي</h3>
+        <p>روبوت يستخدم الحساسات والموتورات للتحكم بالاتجاه والحركة باستخدام Arduino و C++، مع إمكانية التحكم عن بعد.</p>
+        <div class="tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">C++</span>
+          <span class="tag">Sensors</span>
+          <span class="tag">IoT</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq" class="demo-link" target="_blank"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq" class="code-link" target="_blank"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
     </div>
 
-    <div class="project-card" data-aos="zoom-in">
-      <h3>تطبيق ExplorePC</h3>
-      <p>هو منصة متكاملة لبيع:
-
-أجهزة الحواسيب (أجهزة مكتبية، لابتوبات، سيرفرات).
-ملحقات الحواسيب (شاشات، لوحات مفاتيح، فئران، سماعات).
-قطع الغيار (كرت شاشة، ذاكرة RAM، أقراص SSD).</p>
-      <div class="tags">
-        <span class="tag">Flutter</span>
-        <span class="tag">MySQL</span>
-        <span class="tag">Laravel</span>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="project-image">
+        <img src="assets/Homee.jpg" alt="تطبيق ExplorePC" loading="lazy"/>
       </div>
-      <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-Customers_App" target="_blank"><i class="fab fa-github"></i> عرض على GitHub</a>
+      <div class="project-content">
+        <h3>تطبيق ExplorePC</h3>
+        <p>منصة متكاملة لبيع أجهزة الحواسيب وملحقاتها وقطع الغيار، مع نظام دفع إلكتروني وتتبع للطلبات.</p>
+        <div class="tags">
+          <span class="tag">Flutter</span>
+          <span class="tag">Laravel</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">E-commerce</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-Customers_App" class="demo-link" target="_blank"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-Customers_App" class="code-link" target="_blank"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -238,57 +369,109 @@
 <footer class="main-footer">
   <div class="container">
     <p>© 2025 أيمن توفيق عبدالودود - جميع الحقوق محفوظة</p>
+    <div class="social-links">
+      <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="لينكد إن"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Eng-Ayman-Twfaq" aria-label="جيت هاب" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
   </div>
 </footer>
 
 <!-- JavaScript -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 1000 });
-
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    document.body.classList.toggle("light");
+  // تهيئة تأثيرات الحركة
+  AOS.init({
+    duration: 800,
+    once: true,
+    easing: 'ease-out-quad'
   });
 
+  // تبديل الوضع الليلي
+  const themeToggle = document.getElementById("theme-toggle");
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+    
+    // تغيير الأيقونة
+    const icon = themeToggle.querySelector('i');
+    if (document.body.classList.contains("dark")) {
+      icon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      icon.classList.replace('fa-sun', 'fa-moon');
+    }
+  });
+
+  // قائمة الهاتف
   const menuBtn = document.getElementById("menu-toggle");
   const navLinks = document.getElementById("nav-links");
 
   menuBtn.addEventListener("click", () => {
     navLinks.classList.toggle("show");
+    menuBtn.setAttribute('aria-expanded', navLinks.classList.contains("show"));
   });
 
+  // إغلاق القائمة عند النقر على رابط
+  document.querySelectorAll('#nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove("show");
+      menuBtn.setAttribute('aria-expanded', false);
+    });
+  });
 
-   const canvas = document.getElementById("flutterRain");
+  // تأثير المطر
+  const canvas = document.getElementById("flutterRain");
   const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
 
   let drops = [];
-  for (let i = 0; i < 40; i++) {
+   const chars = ["</>", "c++", "c#", "js", "db", "dart", "flutter", "python", "laravel", "html", "css", "php"];
+  
+  for (let i = 0; i < 50; i++) {
     drops.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      speedY: 2 + Math.random() * 2,
-      text: "< / >",
-      size: 18 + Math.random() * 6
+      speedY: 1 + Math.random() * 3,
+      speedX: Math.random() * 0.5 - 0.25,
+      text: chars[Math.floor(Math.random() * chars.length)],
+      size: 14 + Math.random() * 10,
+      opacity: 0.1 + Math.random() * 0.3
     });
   }
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.font = 'bold 16px Arial';
+    
     drops.forEach((drop) => {
       ctx.font = `${drop.size}px Arial`;
-      ctx.fillStyle = "#00bcd4";
+      ctx.fillStyle = `rgba(0, 188, 212, ${drop.opacity})`;
       ctx.fillText(drop.text, drop.x, drop.y);
+      
       drop.y += drop.speedY;
+      drop.x += drop.speedX;
+      
       if (drop.y > canvas.height) {
         drop.y = -20;
         drop.x = Math.random() * canvas.width;
       }
+      
+      if (drop.x > canvas.width || drop.x < 0) {
+        drop.speedX = -drop.speedX;
+      }
     });
+    
     requestAnimationFrame(draw);
   }
+  
   draw();
 </script>
 
