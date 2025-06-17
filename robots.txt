@@ -14,4 +14,4 @@ Disallow: /backup/
 Crawl-delay: 5
 
 # تحديد خريطة الموقع (سأعطيك ملف sitemap بعد قليل)
-Sitemap: https://www-aymantawfiq-dev.onrender.com/sitemap.xml
+Sitemap: https://ayman-3w51.onrender.com/sitemap.xml
