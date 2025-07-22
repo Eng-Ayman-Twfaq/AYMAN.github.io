@@ -200,18 +200,40 @@
 
   // تبديل الوضع الليلي
   const themeToggle = document.getElementById("theme-toggle");
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    document.body.classList.toggle("light");
-    
-    // تغيير الأيقونة
+const body = document.body;
+
+// التحقق من تفضيل المستخدم المحفوظ
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "light") {
+  body.classList.add("light");
+  body.classList.remove("dark");
+  // تغيير أيقونة الزر إلى القمر
+  const icon = themeToggle.querySelector('i');
+  icon.classList.replace('fa-sun', 'fa-moon');
+} else {
+  // الوضع الافتراضي: dark
+  body.classList.add("dark");
+  body.classList.remove("light");
+  const icon = themeToggle.querySelector('i');
+  icon.classList.replace('fa-moon', 'fa-sun');
+}
+
+// إضافة مستمع للنقر لتبديل الوضع
+themeToggle.addEventListener("click", () => {
+  if (body.classList.contains("dark")) {
+    body.classList.replace("dark", "light");
+    localStorage.setItem("theme", "light");
+    // تغيير الأيقونة إلى القمر
     const icon = themeToggle.querySelector('i');
-    if (document.body.classList.contains("dark")) {
-      icon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-      icon.classList.replace('fa-sun', 'fa-moon');
-    }
-  });
+    icon.classList.replace('fa-sun', 'fa-moon');
+  } else {
+    body.classList.replace("light", "dark");
+    localStorage.setItem("theme", "dark");
+    // تغيير الأيقونة إلى الشمس
+    const icon = themeToggle.querySelector('i');
+    icon.classList.replace('fa-moon', 'fa-sun');
+  }
+});
 
   // قائمة الهاتف
   const menuBtn = document.getElementById("menu-toggle");
