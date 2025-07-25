@@ -1,0 +1,528 @@
+:root {
+      --primary-color: #00bcd4;
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --card-bg: #f5f5f5;
+      --timeline-line: 4px;
+    }
+
+    body.dark {
+      --primary-color: #00bcd4;
+      --bg-color: #121212;
+      --text-color: #eeeeee;
+      --card-bg: #1e1e1e;
+    }
+
+    /* .about-section {
+      padding: 60px 0;
+    } */
+
+    .profile-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-image {
+      flex: 1 1 300px;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    /* صورة البروفايل دائرية نابضة */
+.profile-image img {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  box-shadow: 0 0 40px #00bcd4a0, 0 0 0 8px #fff;
+  border: 5px solid #fff;
+  background: linear-gradient(135deg, #00bcd4 0%, #764ba2 100%);
+  object-fit: cover;
+  object-position: center;
+  animation: profilePulse 2.5s infinite;
+  transition: box-shadow 0.3s;
+}
+@keyframes profilePulse {
+  0%, 100% { box-shadow: 0 0 40px #00bcd4a0, 0 0 0 8px #fff; }
+  50% { box-shadow: 0 0 60px #764ba2a0, 0 0 0 12px #fff; }
+}
+body.dark .profile-image img {
+  border: 5px solid #23272b;
+  background: linear-gradient(135deg, #004d40 0%, #764ba2 100%);
+}
+
+    .profile-content {
+      flex: 1 1 500px;
+    }
+
+    /* نصوص التعريف */
+.profile-content h2, .section-title {
+  font-size: 2.2rem;
+  color: var(--primary-color, #00bcd4);
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00bcd4 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.profile-content p {
+  color: var(--text-color, #222);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+body.dark .profile-content p {
+  color: #e0f7fa;
+}
+
+/* بطاقات المهارات */
+.profile-content ul {
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,188,212,0.07);
+  padding: 18px 24px;
+  margin-top: 15px;
+  margin-bottom: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+
+.profile-content li {
+  font-size: 1.08rem;
+  color: var(--primary-color, #00bcd4);
+  font-weight: 500;
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 0;
+}
+.profile-content li::before {
+  content: "★";
+  color: #764ba2;
+  font-size: 1.1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.7;
+}
+body.dark .profile-content li {
+  color: #00bcd4;
+}
+body.dark .profile-content li::before {
+  color: #00bcd4;
+}
+
+    .timeline-section {
+      padding: 40px 0;
+    }
+
+    /* تايملاين عصري */
+.timeline-section {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 900px;
+}
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 38px;
+  position: relative;
+  animation: aboutFadeIn 1.2s cubic-bezier(.22,1,.36,1);
+}
+
+/* عدل هنا: احذف position: absolute; right/top */
+.timeline-icon {
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00bcd4 0%, #764ba2 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 2px 16px #00bcd420;
+  margin-top: 4px;
+  transition: background 0.3s;
+  /* احذف أي position: absolute أو right أو top */
+}
+body.dark .timeline-icon {
+  background: linear-gradient(135deg, #004d40 0%, #764ba2 100%);
+}
+
+    .timeline-content {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 3px 15px rgba(0,188,212,0.08);
+      transition: all 0.3s;
+      border-right: 3px solid var(--primary-color);
+      position: relative;
+    }
+.timeline-content:hover {
+  transform: translateY(-7px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(0,188,212,0.15);
+}
+
+.timeline-content {
+  background: var(--card-bg, #fff);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px #00bcd410;
+  padding: 18px 22px;
+  flex: 1;
+  min-width: 0;
+  transition: box-shadow 0.3s;
+}
+.timeline-content h4 {
+  color: var(--primary-color, #00bcd4);
+  margin-bottom: 10px;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+.timeline-content p {
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--text-color, #333);
+  line-height: 1.6;
+}
+body.dark .timeline-content {
+  background: #23272b;
+}
+body.dark .timeline-content p {
+  color: #e0f7fa;
+}
+
+/* العناوين */
+.section-title {
+  color: var(--primary-color);
+  font-size: 32px;
+  margin-top: 100px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #00bcd4 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 80px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+    /* أزرار وأيقونات */
+.btn, .action-btn {
+  background: linear-gradient(90deg, #00bcd4 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,188,212,0.09);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 8px 0;
+  display: inline-block;
+}
+.btn:hover, .action-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #764ba2a0;
+}
+
+/* مؤثرات ظهور تدريجي */
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+/* توافق الألوان مع الرئيسية */
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+
+/* شبكة المشاريع */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+/* كارد المشروع */
+.project-card {
+  background: linear-gradient(135deg, #fff 70%, #e0f7fa 100%);
+  border-radius: 22px;
+  box-shadow: 0 4px 32px rgba(0,188,212,0.10), 0 1.5px 8px rgba(0,0,0,0.04);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s;
+  display: flex;
+  flex-direction: column;
+  min-height: 440px;
+  position: relative;
+  border: 2px solid #00bcd410;
+  z-index: 1;
+  animation: cardFadeIn 1s cubic-bezier(.22,1,.36,1);
+}
+@keyframes cardFadeIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.97);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+.project-card:hover {
+  transform: translateY(-12px) scale(1.035) rotateZ(-0.5deg);
+  box-shadow: 0 12px 40px 0 #00bcd4a8, 0 2px 12px rgba(0,0,0,0.09);
+  border-color: #00bcd4;
+}
+
+.project-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 22px 22px;
+}
+.project-image img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  transition: filter 0.4s, transform 0.4s;
+  border-bottom: 1px solid #e0e0e0;
+  filter: grayscale(10%) brightness(0.98);
+}
+.project-card:hover .project-image img {
+  filter: grayscale(0%) brightness(1.08) saturate(1.2);
+  transform: scale(1.04) rotateZ(0.5deg);
+}
+
+/* محتوى الكارد */
+.project-content {
+  padding: 24px 22px 18px 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: contentFadeIn 1.2s cubic-bezier(.22,1,.36,1);
+}
+@keyframes contentFadeIn {
+  0% { opacity: 0; transform: translateY(30px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+.project-content h3 {
+  font-size: 1.25rem;
+  color: var(--primary-color, #00bcd4);
+  margin-bottom: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.project-card:hover .project-content h3 {
+  color: #764ba2;
+}
+
+.project-content p {
+  color: var(--text-color, #333);
+  font-size: 1.08rem;
+  margin-bottom: 18px;
+  line-height: 1.7;
+  min-height: 60px;
+}
+
+/* التاجز */
+.tags {
+  margin-bottom: 14px;
+}
+.tag {
+  display: inline-block;
+  background: linear-gradient(90deg, #00bcd4 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 7px;
+  padding: 4px 13px;
+  font-size: 0.98rem;
+  margin: 0 5px 5px 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 1px 6px rgba(0,188,212,0.09);
+  animation: tagPop 0.7s cubic-bezier(.22,1,.36,1);
+}
+@keyframes tagPop {
+  0% { opacity: 0; transform: scale(0.7);}
+  100% { opacity: 1; transform: scale(1);}
+}
+
+/* روابط المشروع */
+.project-links {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+}
+.demo-link, .code-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(90deg, #00bcd4 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.22s, box-shadow 0.22s, transform 0.22s;
+  box-shadow: 0 1px 6px rgba(0,188,212,0.09);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.demo-link::after, .code-link::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; width: 100%; height: 100%;
+  background: rgba(255,255,255,0.08);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.demo-link:hover, .code-link:hover {
+  background: linear-gradient(90deg, #764ba2 0%, #00bcd4 100%);
+  color: #fff;
+  transform: scale(1.07) translateY(-2px);
+  box-shadow: 0 0 20px #764ba2a0;
+}
+.demo-link:hover::after, .code-link:hover::after {
+  opacity: 1;
+  animation: btnShine 0.7s linear;
+}
+@keyframes btnShine {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+
+/* أنيميشن عند ظهور الكارد */
+[data-aos="zoom-in"] {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+}
+[data-aos="zoom-in"].aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* استجابة لجميع الشاشات */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+  }
+  .project-image img { height: 160px; }
+  .project-card { min-height: 340px; }
+  .project-content { padding: 18px 10px 14px 10px; }
+  .profile-container { flex-direction: column; gap: 24px; }
+  .profile-image { max-width: 220px; }
+  .timeline { padding: 0 10px; }
+}
+@media (max-width: 600px) {
+  .projects-title { font-size: 1.5rem; }
+  .project-image img { height: 120px; }
+  .project-card { min-height: 260px; }
+  .tags { font-size: 0.92rem; }
+  .demo-link, .code-link { font-size: 0.97rem; padding: 7px 12px; }
+  .profile-content h2, .section-title { font-size: 1.2rem; }
+  .profile-image img { max-width: 120px; }
+  .timeline-content { padding: 12px 8px; }
+  .timeline-icon { width: 38px; height: 38px; font-size: 1.2rem; }
+}
+
+    @media (max-width: 992px) {
+      .profile-container {
+        gap: 30px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-section, .timeline-section {
+        padding: 40px 0;
+      }
+      .timeline {
+        padding-right: 0; /* إزالة الفراغ الزائد */
+      }
+      .timeline-item {
+        padding-right: 0; /* إزالة الفراغ الزائد */
+      }
+      .timeline-icon {
+        width: 45px;
+        height: 45px;
+        right: auto; /* إزالة التثبيت */
+      }
+      .timeline::before {
+        right: auto;
+        left: 27px; /* إذا كان هناك خط زمني، ضعه يسار الأيقونة */
+      }
+      .profile-content ul {
+        padding-right: 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .timeline-item {
+        padding-right: 0;
+      }
+      .timeline-content {
+        padding: 20px;
+      }
+      .timeline-content h4 {
+        font-size: 18px;
+      }
+      .timeline-content p {
+        font-size: 15px;
+      }
+      .section-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .timeline-item {
+        padding-right: 0;
+      }
+      .timeline-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+      .timeline::before {
+        left: 18px;
+        right: auto;
+        width: 3px;
+      }
+    }

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="google-site-verification" content="cW5wvT3OTyyF2JSdCPLCRam4Ru02dSH-FmF3u-wsj-U" />
 <!-- عنوان الصفحة -->
-<title>مشاريعي البرمجية | أيمن توفيق للبرمجيات</title>
+<title data-translate="pageTitlep">مشاريعي البرمجية | أيمن توفيق للبرمجيات</title>
  <!-- Favicon -->
   <link rel="icon" href="https://ayman-3w51.onrender.com/assets/profile-placeholder.png" type="image/x-icon">
   <link rel="shortcut icon" href="https://ayman-3w51.onrender.com/assets/profile-placeholder.png" type="image/x-icon">
@@ -26,7 +26,8 @@
 <link rel="canonical" href="https://ayman-3w51.onrender.com/projects.html" />
 
   <!-- CSS خارجي -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/project.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   
   <!-- مكتبة AOS للأنيميشن -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
@@ -37,268 +38,20 @@
   <!-- خط عربي جميل -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-  <style>
-    :root {
-      --primary-color: #00bcd4;
-      --bg-color: #ffffff;
-      --text-color: #111111;
-      --card-bg: #f5f5f5;
-      --tag-bg: #e0f7fa;
-    }
-
-    body.dark {
-      --primary-color: #00bcd4;
-      --bg-color: #121212;
-      --text-color: #eeeeee;
-      --card-bg: #1e1e1e;
-      --tag-bg: #004d40;
-    }
-
-    .projects-section {
-      padding: 60px 0;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-header h2 {
-      color: var(--primary-color);
-      font-size: 32px;
-      margin-bottom: 15px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-header h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      right: 50%;
-      transform: translateX(50%);
-      width: 80px;
-      height: 3px;
-      background: var(--primary-color);
-      border-radius: 3px;
-    }
-
-    .section-header p {
-      color: var(--text-color);
-      font-size: 17px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid rgba(0,188,212,0.1);
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    .project-image {
-      height: 180px;
-      overflow: hidden;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .project-card:hover .project-image img {
-      transform: scale(1.05);
-    }
-
-    .project-content {
-      padding: 20px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-content h3 {
-      color: var(--primary-color);
-      margin-bottom: 12px;
-      font-size: 20px;
-    }
-
-    .project-content p {
-      color: var(--text-color);
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 15px;
-      flex-grow: 1;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 15px;
-    }
-
-    .tag {
-      background: var(--tag-bg);
-      color: var(--primary-color);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 10px;
-      margin-top: auto;
-    }
-
-    .project-links a {
-      flex: 1;
-      text-align: center;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .demo-link {
-      background: var(--primary-color);
-      color: white;
-    }
-
-    .demo-link:hover {
-      background: #0097a7;
-    }
-
-    .code-link {
-      background: transparent;
-      color: var(--primary-color);
-      border: 2px solid var(--primary-color);
-    }
-
-    .code-link:hover {
-      background: rgba(0,188,212,0.1);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 992px) {
-      .projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-      
-      .section-header h2 {
-        font-size: 28px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .projects-section {
-        padding: 40px 0;
-      }
-      
-      .section-header {
-        margin-bottom: 30px;
-      }
-      
-      .project-image {
-        height: 160px;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-      
-      .section-header h2 {
-        font-size: 24px;
-      }
-      
-      .section-header p {
-        font-size: 16px;
-      }
-      
-      .project-content {
-        padding: 15px;
-      }
-      
-      .project-content h3 {
-        font-size: 18px;
-      }
-      
-      .project-links {
-        flex-direction: column;
-        gap: 8px;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .project-image {
-        height: 140px;
-      }
-      
-      .tag {
-        font-size: 12px;
-        padding: 4px 10px;
-      }
-    }
-  </style>
+ 
 </head>
 
 <body class="dark">
 <canvas id="flutterRain"></canvas>
-<header class="main-header">
-  <div class="container nav-container">
-    <h1 class="logo">أيمن توفيق</h1>
-    
-    <!-- زر القائمة للهاتف -->
-    <button class="menu-toggle" id="menu-toggle" aria-label="قائمة التنقل">
-      <i class="fas fa-bars"></i>
-    </button>
+<!-- رأس الصفحة -->
+<div id="header-placeholder"></div>
 
-    <!-- زر تبديل الثيم -->
-    <button id="theme-toggle" aria-label="تبديل الوضع الليلي">
-      <i class="fas fa-sun"></i>
-    </button>
-
-    <!-- روابط التنقل -->
-    <nav id="main-nav">
-      <ul id="nav-links">
-        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-        <li><a href="about.html"><i class="fas fa-user"></i> من أنا</a></li>
-        <li><a href="projects.html" class="active"><i class="fas fa-code"></i> المشاريع</a></li>
-        <li><a href="skills.html"><i class="fas fa-cogs"></i> المهارات</a></li>
-        <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+<!-- ... بداية الصفحة ... -->
 <section class="projects-section container">
+  <!-- العنوان والوصف -->
   <div class="section-header" data-aos="fade-up">
-    <h2><i class="fas fa-project-diagram"></i> مشاريعي</h2>
-    <p>مجموعة من المشاريع التي قمت بتطويرها باستخدام تقنيات متعددة، بعضها مفتوح المصدر على GitHub</p>
+    <h2 data-translate="projectsTitle"><i class="fas fa-project-diagram"></i> مشاريعي</h2>
+    <p data-translate="projectsDesc">مجموعة من المشاريع التي قمت بتطويرها باستخدام تقنيات متعددة، بعضها مفتوح المصدر على GitHub</p>
   </div>
 
   <div class="projects-grid">
@@ -308,8 +61,8 @@
         <img src="assets/homel.webp" alt="لوحة تحكم متكاملة" loading="lazy"/>
       </div>
       <div class="project-content">
-        <h3>لوحة تحكم متكاملة</h3>
-        <p>نظام إدارة شامل يحتوي على تطبيق للعملاء للتسوق، تطبيق للتجار لإدارة المخزون والطلبات، وخدمات سحابية باستخدام Firebase وMySQL.</p>
+        <h3 data-translate="project1Title">لوحة تحكم متكاملة</h3>
+        <p data-translate="project1Desc">نظام إدارة شامل يحتوي على تطبيق للعملاء للتسوق، تطبيق للتجار لإدارة المخزون والطلبات، وخدمات سحابية باستخدام Firebase وMySQL.</p>
         <div class="tags">
           <span class="tag">Laravel</span>
           <span class="tag">npm</span>
@@ -317,8 +70,8 @@
           <span class="tag">node</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC_Dashboard" class="demo-link" target="_blank"><i class="fas fa-eye"></i> عرض المشروع</a>
-          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC_Dashboard" class="code-link" target="_blank"><i class="fab fa-github"></i> الكود</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC_Dashboard" class="demo-link" target="_blank" data-translate="viewProject"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC_Dashboard" class="code-link" target="_blank" data-translate="code"><i class="fab fa-github"></i> الكود</a>
         </div>
       </div>
     </div>
@@ -328,8 +81,8 @@
         <img src="assets/home.webp" alt="تطبيق Flutter" loading="lazy"/>
       </div>
       <div class="project-content">
-        <h3>تطبيق Flutter للتجار</h3>
-        <p>تطبيق متكامل لإدارة متجر ExplorePC يتيح للتجار إدارة المنتجات، متابعة الطلبات، وعرض إحصائيات المبيعات والربح.</p>
+        <h3 data-translate="project2Title">تطبيق Flutter للتجار</h3>
+        <p data-translate="project2Desc">تطبيق متكامل لإدارة متجر ExplorePC يتيح للتجار إدارة المنتجات، متابعة الطلبات، وعرض إحصائيات المبيعات والربح.</p>
         <div class="tags">
           <span class="tag">Flutter</span>
           <span class="tag">Laravel</span>
@@ -337,42 +90,38 @@
           <span class="tag">MySQL</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-marchins_App" class="demo-link" target="_blank"><i class="fas fa-eye"></i> عرض المشروع</a>
-          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-marchins_App" class="code-link" target="_blank"><i class="fab fa-github"></i> الكود</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-marchins_App" class="demo-link" target="_blank" data-translate="viewProject"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-marchins_App" class="code-link" target="_blank" data-translate="code"><i class="fab fa-github"></i> الكود</a>
         </div>
       </div>
     </div>
 
-   <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-  <div class="project-image">
-    <img src="assets/44cb11f-67fa-40fd-ab2d-fbd2aeafec74.webp" alt="Human Follower Robot" loading="lazy" />
-  </div>
-  <div class="project-content">
-    <h3>روبوت تتبع الإنسان الذكي</h3>
-    <p>روبوت ذكي يستخدم مستشعرات الموجات فوق الصوتية وIR لتتبع الأشخاص تلقائيًا. يعتمد على أردوينو ويتضمن تحكمًا دقيقًا بمحركات DC وسيرفو، مثالي للتطبيقات التعليمية.</p>
-    <div class="tags">
-      <span class="tag">Arduino</span>
-      <span class="tag">C++</span>
-      <span class="tag">IOT</span>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+      <div class="project-image">
+        <img src="assets/44cb11f-67fa-40fd-ab2d-fbd2aeafec74.webp" alt="Human Follower Robot" loading="lazy" />
+      </div>
+      <div class="project-content">
+        <h3 data-translate="project3Title">روبوت تتبع الإنسان الذكي</h3>
+        <p data-translate="project3Desc">روبوت ذكي يستخدم مستشعرات الموجات فوق الصوتية وIR لتتبع الأشخاص تلقائيًا. يعتمد على أردوينو ويتضمن تحكمًا دقيقًا بمحركات DC وسيرفو، مثالي للتطبيقات التعليمية.</p>
+        <div class="tags">
+          <span class="tag">Arduino</span>
+          <span class="tag">C++</span>
+          <span class="tag">IOT</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq/Human_Follower_Robot" class="demo-link" target="_blank" data-translate="viewProject"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/Human_Follower_Robot" class="code-link" target="_blank" data-translate="code"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
     </div>
-    <div class="project-links">
-      <a href="https://github.com/Eng-Ayman-Twfaq/Human_Follower_Robot" class="demo-link" target="_blank">
-        <i class="fas fa-eye"></i> عرض المشروع
-      </a>
-      <a href="https://github.com/Eng-Ayman-Twfaq/Human_Follower_Robot" class="code-link" target="_blank">
-        <i class="fab fa-github"></i> الكود
-      </a>
-    </div>
-  </div>
-</div>
 
     <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
       <div class="project-image">
         <img src="assets/homee.webp" alt="تطبيق ExplorePC" loading="lazy"/>
       </div>
       <div class="project-content">
-        <h3>تطبيق ExplorePC</h3>
-        <p>منصة متكاملة لبيع أجهزة الحواسيب وملحقاتها وقطع الغيار، مع نظام دفع إلكتروني وتتبع للطلبات.</p>
+        <h3 data-translate="project4Title">تطبيق ExplorePC</h3>
+        <p data-translate="project4Desc">منصة متكاملة لبيع أجهزة الحواسيب وملحقاتها وقطع الغيار، مع نظام دفع إلكتروني وتتبع للطلبات.</p>
         <div class="tags">
           <span class="tag">Flutter</span>
           <span class="tag">Laravel</span>
@@ -380,174 +129,138 @@
           <span class="tag">E-commerce</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-Customers_App" class="demo-link" target="_blank"><i class="fas fa-eye"></i> عرض المشروع</a>
-          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-Customers_App" class="code-link" target="_blank"><i class="fab fa-github"></i> الكود</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-Customers_App" class="demo-link" target="_blank" data-translate="viewProject"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/ExplorePC-Customers_App" class="code-link" target="_blank" data-translate="code"><i class="fab fa-github"></i> الكود</a>
         </div>
       </div>
     </div>
 
-
     <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-  <div class="project-image">
-    <img src="assets/logo.webp" alt="Yemen Fleet Admin Dashboard" loading="lazy"/>
-  </div>
-  <div class="project-content">
-    <h3>Yemen Fleet - لوحة تحكم الأدمن</h3>
-    <p>نظام متكامل لإدارة أساطيل الشركات في اليمن يتيح للمسؤولين إدارة الشركات، الاشتراكات، وعرض إحصائيات النظام.</p>
-    <div class="tags">
-      <span class="tag">Laravel 10</span>
-      <span class="tag">Livewire</span>
-      <span class="tag">MySQL</span>
-      <span class="tag">AdminLTE</span>
+      <div class="project-image">
+        <img src="assets/logo.webp" alt="Yemen Fleet Admin Dashboard" loading="lazy"/>
+      </div>
+      <div class="project-content">
+        <h3 data-translate="project5Title">Yemen Fleet - لوحة تحكم الأدمن</h3>
+        <p data-translate="project5Desc">نظام متكامل لإدارة أساطيل الشركات في اليمن يتيح للمسؤولين إدارة الشركات، الاشتراكات، وعرض إحصائيات النظام.</p>
+        <div class="tags">
+          <span class="tag">Laravel 10</span>
+          <span class="tag">Livewire</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">AdminLTE</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Dashboard" class="demo-link" target="_blank" data-translate="viewProject"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Dashboard" class="code-link" target="_blank" data-translate="code"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
     </div>
-    <div class="project-links">
-      <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Dashboard" class="demo-link" target="_blank"><i class="fas fa-eye"></i> عرض المشروع</a>
-      <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Dashboard" class="code-link" target="_blank"><i class="fab fa-github"></i> الكود</a>
-    </div>
-  </div>
-</div>
 
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="project-image">
+        <img src="assets/company-dashboard-main.webp" alt="Yemen Fleet Dashboard" loading="lazy"/>
+      </div>
+      <div class="project-content">
+        <h3 data-translate="project6Title">لوحة تحكم Yemen Fleet</h3>
+        <p data-translate="project6Desc">نظام احترافي لإدارة أسطول النقل مخصص للشركات اليمنية. يشمل تتبع الشاحنات، إدارة السائقين، متابعة الطلبات، وتحليلات الأداء.</p>
+        <div class="tags">
+          <span class="tag">Laravel 10</span>
+          <span class="tag">PHP 8.2</span>
+          <span class="tag">Livewire</span>
+          <span class="tag">MySQL</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Company-Dashboard" class="demo-link" target="_blank" data-translate="viewProject"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Company-Dashboard" class="code-link" target="_blank" data-translate="code"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
+    </div>
 
-<div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-  <div class="project-image">
-    <img src="assets/company-dashboard-main.webp" alt="Yemen Fleet Dashboard" loading="lazy"/>
-  </div>
-  <div class="project-content">
-    <h3>لوحة تحكم Yemen Fleet</h3>
-    <p>
-      نظام احترافي لإدارة أسطول النقل مخصص للشركات اليمنية. يشمل تتبع الشاحنات، إدارة السائقين، متابعة الطلبات، وتحليلات الأداء.
-    </p>
-    <div class="tags">
-      <span class="tag">Laravel 10</span>
-      <span class="tag">PHP 8.2</span>
-      <span class="tag">Livewire</span>
-      <span class="tag">MySQL</span>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="project-image">
+        <img src="assets/fleet.webp" alt="Yemen Fleet Customer App" loading="lazy"/>
+      </div>
+      <div class="project-content">
+        <h3 data-translate="project7Title">تطبيق Yemen Fleet - العميل</h3>
+        <p data-translate="project7Desc">تطبيق موبايل يسمح للعملاء بطلب المنتجات وتتبع الشحنات، مع دعم للدفع الإلكتروني وتقييم المنتجات مبني باستخدام Flutter API.</p>
+        <div class="tags">
+          <span class="tag">Flutter 3.13.8</span>
+          <span class="tag">API MySQL</span>
+          <span class="tag">Google Maps</span>
+          <span class="tag">Android/iOS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Customer-App" class="demo-link" target="_blank" data-translate="viewProject"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Customer-App" class="code-link" target="_blank" data-translate="code"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
     </div>
-    <div class="project-links">
-      <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Company-Dashboard" class="demo-link" target="_blank">
-        <i class="fas fa-eye"></i> عرض المشروع
-      </a>
-      <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Company-Dashboard" class="code-link" target="_blank">
-        <i class="fab fa-github"></i> الكود
-      </a>
-    </div>
-  </div>
-</div>
 
-<div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-  <div class="project-image">
-    <img src="assets/fleet.webp" alt="Yemen Fleet Customer App" loading="lazy"/>
-  </div>
-  <div class="project-content">
-    <h3>تطبيق Yemen Fleet - العميل</h3>
-    <p>
-      تطبيق موبايل يسمح للعملاء بطلب المنتجات وتتبع الشحنات، مع دعم للدفع الإلكتروني وتقييم المنتجات مبني باستخدام Flutter API.
-    </p>
-    <div class="tags">
-      <span class="tag">Flutter 3.13.8</span>
-      <span class="tag">API MySQL</span>
-      <span class="tag">Google Maps</span>
-      <span class="tag">Android/iOS</span>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="project-image">
+        <img src="assets/home-driver.webp" alt="Yemen Fleet Driver App" loading="lazy"/>
+      </div>
+      <div class="project-content">
+        <h3 data-translate="project8Title">تطبيق Yemen Fleet - السائق</h3>
+        <p data-translate="project8Desc">تطبيق مخصص للسائقين لإدارة الطلبات واستقبالها، عرض الطرق المثلى، وتتبع الموقع بشكل حي. مبني باستخدام Flutter وGoogle Maps.</p>
+        <div class="tags">
+          <span class="tag">Flutter 3.13.8</span>
+          <span class="tag">Dart 3.1.0</span>
+          <span class="tag">API MySQL</span>
+          <span class="tag">خرائط Google</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Driver-App" class="demo-link" target="_blank" data-translate="viewProject"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Driver-App" class="code-link" target="_blank" data-translate="code"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
     </div>
-    <div class="project-links">
-      <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Customer-App" class="demo-link" target="_blank">
-        <i class="fas fa-eye"></i> عرض المشروع
-      </a>
-      <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Customer-App" class="code-link" target="_blank">
-        <i class="fab fa-github"></i> الكود
-      </a>
-    </div>
-  </div>
-</div>
 
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+      <div class="project-image">
+        <img src="assets/black.webp" alt="نظام إدارة مطعم شواية البلدي" loading="lazy" />
+      </div>
+      <div class="project-content">
+        <h3 data-translate="project9Title">نظام إدارة مطعم شواية البلدي</h3>
+        <p data-translate="project9Desc">تطبيق مكتبي متكامل لإدارة حسابات العمال، المنتجات، والمبيعات باستخدام C# وSQL Server وتقارير Crystal Reports.</p>
+        <div class="tags">
+          <span class="tag">C#</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Crystal Reports</span>
+          <span class="tag">WinForms</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq/Restaurant-Manager-System" class="demo-link" target="_blank" data-translate="viewProject"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/Restaurant-Manager-System" class="code-link" target="_blank" data-translate="code"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
+    </div>
 
-<div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-  <div class="project-image">
-    <img src="assets/home-driver.webp" alt="Yemen Fleet Driver App" loading="lazy"/>
-  </div>
-  <div class="project-content">
-    <h3>تطبيق Yemen Fleet - السائق</h3>
-    <p>
-      تطبيق مخصص للسائقين لإدارة الطلبات واستقبالها، عرض الطرق المثلى، وتتبع الموقع بشكل حي. مبني باستخدام Flutter وGoogle Maps.
-    </p>
-    <div class="tags">
-      <span class="tag">Flutter 3.13.8</span>
-      <span class="tag">Dart 3.1.0</span>
-      <span class="tag">API MySQL</span>
-      <span class="tag">خرائط Google</span>
+    <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+      <div class="project-image">
+        <img src="assets/ayman.webp" alt="المساعد الصوتي العربي" loading="lazy" />
+      </div>
+      <div class="project-content">
+        <h3 data-translate="project10Title">المساعد الصوتي العربي - Ayman Voice Assistant</h3>
+        <p data-translate="project10Desc">تطبيق ذكي بواجهة رسومية عربية يعتمد على تقنيات الذكاء الاصطناعي للتفاعل الصوتي الطبيعي باللغة العربية. يتيح تنفيذ أوامر مثل البحث، عرض الوقت، تشغيل الموسيقى، والمزيد.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">PyQt5</span>
+          <span class="tag">SpeechRecognition</span>
+          <span class="tag">AI</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Eng-Ayman-Twfaq/Ayman-Voice-Assistant" class="demo-link" target="_blank" data-translate="viewProject"><i class="fas fa-eye"></i> عرض المشروع</a>
+          <a href="https://github.com/Eng-Ayman-Twfaq/Ayman-Voice-Assistant" class="code-link" target="_blank" data-translate="code"><i class="fab fa-github"></i> الكود</a>
+        </div>
+      </div>
     </div>
-    <div class="project-links">
-      <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Driver-App" class="demo-link" target="_blank">
-        <i class="fas fa-eye"></i> عرض المشروع
-      </a>
-      <a href="https://github.com/Eng-Ayman-Twfaq/Yemen-Fleet-Driver-App" class="code-link" target="_blank">
-        <i class="fab fa-github"></i> الكود
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-  <div class="project-image">
-    <img src="assets/black.webp" alt="نظام إدارة مطعم شواية البلدي" loading="lazy" />
-  </div>
-  <div class="project-content">
-    <h3>نظام إدارة مطعم شواية البلدي</h3>
-    <p>
-      تطبيق مكتبي متكامل لإدارة حسابات العمال، المنتجات، والمبيعات باستخدام C# وSQL Server وتقارير Crystal Reports.
-    </p>
-    <div class="tags">
-      <span class="tag">C#</span>
-      <span class="tag">SQL Server</span>
-      <span class="tag">Crystal Reports</span>
-      <span class="tag">WinForms</span>
-    </div>
-    <div class="project-links">
-      <a href="https://github.com/Eng-Ayman-Twfaq/Restaurant-Manager-System" class="demo-link" target="_blank">
-        <i class="fas fa-eye"></i> عرض المشروع
-      </a>
-      <a href="https://github.com/Eng-Ayman-Twfaq/Restaurant-Manager-System" class="code-link" target="_blank">
-        <i class="fab fa-github"></i> الكود
-      </a>
-    </div>
-  </div>
-</div>
-
-
-<div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-  <div class="project-image">
-    <img src="assets/ayman.webp" alt="المساعد الصوتي العربي" loading="lazy" />
-  </div>
-  <div class="project-content">
-    <h3>المساعد الصوتي العربي - Ayman Voice Assistant</h3>
-    <p>
-      تطبيق ذكي بواجهة رسومية عربية يعتمد على تقنيات الذكاء الاصطناعي للتفاعل الصوتي الطبيعي باللغة العربية.
-      يتيح تنفيذ أوامر مثل البحث، عرض الوقت، تشغيل الموسيقى، والمزيد.
-    </p>
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">PyQt5</span>
-      <span class="tag">SpeechRecognition</span>
-      <span class="tag">AI</span>
-    </div>
-    <div class="project-links">
-      <a href="https://github.com/Eng-Ayman-Twfaq/Ayman-Voice-Assistant" class="demo-link" target="_blank">
-        <i class="fas fa-eye"></i> عرض المشروع
-      </a>
-      <a href="https://github.com/Eng-Ayman-Twfaq/Ayman-Voice-Assistant" class="code-link" target="_blank">
-        <i class="fab fa-github"></i> الكود
-      </a>
-    </div>
-  </div>
-</div>
-
 
   </div>
 </section>
 
 <footer class="main-footer">
   <div class="container">
-    <p>© 2025 أيمن توفيق عبدالودود - جميع الحقوق محفوظة</p>
+    <p data-translate="copyright">© 2025 أيمن توفيق عبدالودود - جميع الحقوق محفوظة</p>
     <div class="social-links">
       <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
       <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
@@ -559,7 +272,8 @@
 
 <!-- JavaScript -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
+<script src="js/header.js"></script>
+<!-- <script>
   // تهيئة تأثيرات الحركة
   AOS.init({
     duration: 800,
@@ -674,7 +388,7 @@ themeToggle.addEventListener("click", () => {
   }
   
   draw();
-</script>
+</script> -->
 
 </body>
 </html>

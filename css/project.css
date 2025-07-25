@@ -1,0 +1,310 @@
+:root {
+      --primary-color: #00bcd4;
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --card-bg: #f5f5f5;
+      --tag-bg: #e0f7fa;
+    }
+
+    body.dark {
+      --primary-color: #00bcd4;
+      --bg-color: #121212;
+      --text-color: #eeeeee;
+      --card-bg: #1e1e1e;
+      --tag-bg: #004d40;
+    }
+
+    .projects-section {
+      padding: 60px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      color: var(--primary-color);
+      font-size: 32px;
+      margin-bottom: 15px;
+      margin-top: 100px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: 50%;
+      transform: translateX(50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 3px;
+    }
+
+    .section-header p {
+      color: var(--text-color);
+      font-size: 17px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* شبكة المشاريع */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+/* كارد المشروع */
+.project-card {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, var(--card-bg, #fff) 70%, #e0f7fa 100%);
+  border-radius: 22px;
+  overflow: hidden;
+  /* أزل أي border أو border-color هنا */
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  padding: 2.5px; /* سماكة الحد */
+  background: linear-gradient(120deg, #00bcd4, #764ba2, #00bcd4, #764ba2);
+  background-size: 300% 300%;
+  animation: borderMove 3s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  /* لإظهار الحد فقط وليس تعبئة الخلفية */
+}
+
+@keyframes borderMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* محتوى الكارد فوق الحد */
+.project-card > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* تحكم في وضوح الحد عند التحويم */
+.project-card::before {
+  opacity: 0.55;
+  filter: blur(1.1px);
+  transition: opacity 0.3s, filter 0.3s;
+}
+.project-card:hover::before {
+  opacity: 1;
+  filter: blur(0.2px);
+}
+
+/* حتى لا يغطي الحد على محتوى الكارد */
+.project-card {
+  background-clip: padding-box;
+}
+@keyframes cardFadeIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.97);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+.project-card:hover {
+  transform: translateY(-12px) scale(1.035) rotateZ(-0.5deg);
+  box-shadow: 0 12px 40px 0 #00bcd4a8, 0 2px 12px rgba(0,0,0,0.09);
+  border-color: #00bcd4;
+}
+body.dark .project-card {
+  background: linear-gradient(135deg, var(--card-bg, #1e1e1e) 70%, #004d40 100%);
+  border: 2px solid #00bcd420;
+  box-shadow: 0 4px 32px rgba(0,188,212,0.13), 0 1.5px 8px rgba(0,0,0,0.18);
+}
+
+/* صورة المشروع بشكل احترافي */
+.project-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px 22px 0 0;
+  aspect-ratio: 16/9;
+  background: #e0e0e0;
+  min-height: 180px;
+  box-shadow: 0 2px 16px #00bcd420;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body.dark .project-image {
+  background: #222;
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* يعرض الصورة كاملة مع ملء الفراغ */
+  object-position: center;
+  transition: filter 0.4s, transform 0.4s;
+  border: none;
+  background: transparent;
+  display: block;
+}
+.project-card:hover .project-image img {
+  filter: grayscale(0%) brightness(1.08) saturate(1.2);
+  transform: scale(1.04) rotateZ(0.5deg);
+}
+
+/* محتوى الكارد */
+.project-content {
+  padding: 24px 22px 18px 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: contentFadeIn 1.2s cubic-bezier(.22,1,.36,1);
+}
+@keyframes contentFadeIn {
+  0% { opacity: 0; transform: translateY(30px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+.project-content h3 {
+  font-size: 1.25rem;
+  color: var(--primary-color, #00bcd4);
+  margin-bottom: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.project-card:hover .project-content h3 {
+  color: #764ba2;
+}
+body.dark .project-content h3 {
+  color: #00bcd4;
+}
+body.dark .project-card:hover .project-content h3 {
+  color: #fff;
+}
+
+.project-content p {
+  color: var(--text-color, #333);
+  font-size: 1.08rem;
+  margin-bottom: 18px;
+  line-height: 1.7;
+  min-height: 60px;
+}
+body.dark .project-content p {
+  color: #e0f7fa;
+}
+
+/* التاجز */
+.tags {
+  margin-bottom: 14px;
+}
+.tag {
+  display: inline-block;
+  background: linear-gradient(90deg, #00bcd4 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 7px;
+  padding: 4px 13px;
+  font-size: 0.98rem;
+  margin: 0 5px 5px 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 1px 6px rgba(0,188,212,0.09);
+  animation: tagPop 0.7s cubic-bezier(.22,1,.36,1);
+}
+@keyframes tagPop {
+  0% { opacity: 0; transform: scale(0.7);}
+  100% { opacity: 1; transform: scale(1);}
+}
+body.dark .tag {
+  background: linear-gradient(90deg, #004d40 0%, #00bcd4 100%);
+  color: #fff;
+}
+
+/* روابط المشروع */
+.project-links {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+}
+.demo-link, .code-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(90deg, #00bcd4 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.22s, box-shadow 0.22s, transform 0.22s;
+  box-shadow: 0 1px 6px rgba(0,188,212,0.09);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.demo-link::after, .code-link::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; width: 100%; height: 100%;
+  background: rgba(255,255,255,0.08);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.demo-link:hover, .code-link:hover {
+  background: linear-gradient(90deg, #764ba2 0%, #00bcd4 100%);
+  color: #fff;
+  transform: scale(1.07) translateY(-2px);
+  box-shadow: 0 0 20px #764ba2a0;
+}
+.demo-link:hover::after, .code-link:hover::after {
+  opacity: 1;
+  animation: btnShine 0.7s linear;
+}
+@keyframes btnShine {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+
+/* أنيميشن عند ظهور الكارد */
+[data-aos="zoom-in"] {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+}
+[data-aos="zoom-in"].aos-animate {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* استجابة لجميع الشاشات */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+  }
+  .project-image { min-height: 120px; }
+  .project-card { min-height: 340px; }
+  .project-content { padding: 18px 10px 14px 10px; }
+}
+@media (max-width: 600px) {
+  .projects-title { font-size: 1.5rem; }
+  .project-image { min-height: 80px; }
+  .project-card { min-height: 260px; }
+  .tags { font-size: 0.92rem; }
+  .demo-link, .code-link { font-size: 0.97rem; padding: 7px 12px; }
+}

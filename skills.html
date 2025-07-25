@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="google-site-verification" content="cW5wvT3OTyyF2JSdCPLCRam4Ru02dSH-FmF3u-wsj-U" />
 <!-- عنوان الصفحة -->
-<title>مهاراتي البرمجية | أيمن توفيق للبرمجيات</title>
+<title data-translate="pageTitles">مهاراتي البرمجية | أيمن توفيق للبرمجيات</title>
  <!-- Favicon -->
   <link rel="icon" href="https://ayman-3w51.onrender.com/assets/profile-placeholder.png" type="image/x-icon">
   <link rel="shortcut icon" href="https://ayman-3w51.onrender.com/assets/profile-placeholder.png" type="image/x-icon">
@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
   <link rel="manifest" href="/site.webmanifest">
 <!-- وصف الصفحة -->
-<meta name="description" content="استعرض المهارات البرمجية والتقنية التي يتميز بها أيمن توفيق، من تطوير الواجهات إلى البرمجة الخلفية وبناء التطبيقات المتقدمة.">
+<meta name="description" content="استعرض المهارات البرمجية والتقنية التي يتميز بها أيمن توفيق، من تطوير الواجهات إلى البرمجة الخلفية وبناء التطبيقات المتقدمة." data-translate="metaDescription">
 
 <!-- كلمات مفتاحية -->
 <meta name="keywords" content="مهارات أيمن توفيق, مهارات برمجية, مهارات مطور, HTML, CSS, JavaScript, React, Node.js, MongoDB, مهندس برمجيات, أيمن توفيق للبرمجيات">
@@ -31,273 +31,35 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 
   <!-- External Header Style -->
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/skills.css">
 
-  <style>
-    :root {
-      --primary-color: #00bcd4;
-      --bg-light: #ffffff;
-      --bg-dark: #121212;
-      --text-light: #111;
-      --text-dark: #f1f1f1;
-      --card-light: #f9f9f9;
-      --card-dark: #1f1f1f;
-      --progress-bg: #e0e0e0;
-      --progress-bg-dark: #333;
-    }
-
-    .skills-section {
-      padding: 60px 0;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-header h1 {
-      color: var(--primary-color);
-      font-size: 36px;
-      margin-bottom: 15px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-header h1::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      right: 50%;
-      transform: translateX(50%);
-      width: 100px;
-      height: 4px;
-      background: var(--primary-color);
-      border-radius: 3px;
-    }
-
-    .section-header p {
-      color: var(--text-color);
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .skills-category {
-      margin-bottom: 50px;
-    }
-
-    .category-title {
-      font-size: 26px;
-      color: var(--primary-color);
-      margin-bottom: 25px;
-      padding-right: 15px;
-      border-right: 5px solid var(--primary-color);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .skill-card {
-      background: var(--card-bg);
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0,188,212,0.1);
-      text-align: center;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-
-    .skill-icon {
-      font-size: 42px;
-      color: var(--primary-color);
-      margin-bottom: 15px;
-    }
-
-    .skill-card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: var(--text-color);
-    }
-
-    .skill-card p {
-      font-size: 15px;
-      color: var(--text-color);
-      opacity: 0.8;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .progress-container {
-      width: 100%;
-      background: var(--progress-bg);
-      border-radius: 10px;
-      overflow: hidden;
-      height: 12px;
-    }
-
-    body.dark .progress-container {
-      background: var(--progress-bg-dark);
-    }
-
-    .progress-bar {
-      height: 100%;
-      background: var(--primary-color);
-      border-radius: 10px;
-      position: relative;
-      transition: width 1s ease-in-out;
-    }
-
-    .progress-value {
-      position: absolute;
-      top: -25px;
-      right: 0;
-      font-size: 14px;
-      font-weight: bold;
-      color: var(--primary-color);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 992px) {
-      .section-header h1 {
-        font-size: 32px;
-      }
-      
-      .category-title {
-        font-size: 24px;
-      }
-      
-      .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      }
-    }
-
-    @media (max-width: 768px) {
-      .skills-section {
-        padding: 40px 0;
-      }
-      
-      .section-header {
-        margin-bottom: 40px;
-      }
-      
-      .section-header h1 {
-        font-size: 28px;
-      }
-      
-      .section-header p {
-        font-size: 16px;
-      }
-      
-      .category-title {
-        font-size: 22px;
-      }
-      
-      .skill-card {
-        padding: 20px;
-      }
-      
-      .skill-icon {
-        font-size: 38px;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .section-header h1 {
-        font-size: 26px;
-      }
-      
-      .category-title {
-        font-size: 20px;
-      }
-      
-      .skill-card h3 {
-        font-size: 18px;
-      }
-      
-      .skill-card p {
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .section-header h1 {
-        font-size: 24px;
-      }
-      
-      .category-title {
-        font-size: 18px;
-      }
-      
-      .skill-icon {
-        font-size: 34px;
-      }
-    }
-  </style>
 </head>
+
 <body class="dark">
 <canvas id="flutterRain"></canvas>
-<header class="main-header">
-  <div class="container nav-container">
-    <h1 class="logo">أيمن توفيق</h1>
-    
-    <!-- زر القائمة للهاتف -->
-    <button class="menu-toggle" id="menu-toggle" aria-label="قائمة التنقل">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- زر تبديل الثيم -->
-    <button id="theme-toggle" aria-label="تبديل الوضع الليلي">
-      <i class="fas fa-sun"></i>
-    </button>
-
-    <!-- روابط التنقل -->
-    <nav id="main-nav">
-      <ul id="nav-links">
-        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-        <li><a href="about.html"><i class="fas fa-user"></i> من أنا</a></li>
-        <li><a href="projects.html"><i class="fas fa-code"></i> المشاريع</a></li>
-        <li><a href="skills.html" class="active"><i class="fas fa-cogs"></i> المهارات</a></li>
-        <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<!-- رأس الصفحة -->
+<div id="header-placeholder"></div>
 
 <section class="skills-section container">
   <div class="section-header" data-aos="fade-down">
-    <h1><i class="fas fa-laptop-code"></i> مهاراتي التقنية</h1>
-    <p>مجموعة المهارات والخبرات التي اكتسبتها خلال رحلتي في عالم البرمجة والتطوير</p>
+    <h1 data-translate="skillsHeader"><i class="fas fa-laptop-code"></i> مهاراتي التقنية</h1>
+    <p data-translate="skillsDescription">مجموعة المهارات والخبرات التي اكتسبتها خلال رحلتي في عالم البرمجة والتطوير</p>
   </div>
 
   <!-- تطوير الموبايل -->
   <div class="skills-category" data-aos="fade-up">
-    <h2 class="category-title"><i class="fas fa-mobile-alt"></i> تطوير الموبايل</h2>
+    <h2 class="category-title" data-translate="mobileDevTitle"><i class="fas fa-mobile-alt"></i> تطوير الموبايل</h2>
     <div class="skills-grid">
       <div class="skill-card">
         <div class="skill-icon">
           <i class="fab fa-flutter"></i>
         </div>
-        <h3>Flutter</h3>
-        <p>تطوير تطبيقات Android و iOS متكاملة مع واجهات مستخدم جذابة وأداء عالي</p>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: 95%;">
-            <span class="progress-value">95%</span>
-          </div>
+        <h3 data-translate="flutterTitle">Flutter</h3>
+        <p data-translate="flutterDesc">تطوير تطبيقات Android و iOS متكاملة مع واجهات مستخدم جذابة وأداء عالي</p>
+        <div class="progress-container" data-value="95%">
+          <div class="progress-bar"></div>
+          <span class="progress-value" data-translate="flutterPercent">95%</span>
         </div>
       </div>
     </div>
@@ -305,18 +67,17 @@
 
   <!-- تطوير الواجهة الخلفية -->
   <div class="skills-category" data-aos="fade-up">
-    <h2 class="category-title"><i class="fas fa-server"></i> تطوير الواجهة الخلفية</h2>
+    <h2 class="category-title" data-translate="backendTitle"><i class="fas fa-server"></i> تطوير الواجهة الخلفية</h2>
     <div class="skills-grid">
       <div class="skill-card">
         <div class="skill-icon">
           <i class="fab fa-laravel"></i>
         </div>
-        <h3>Laravel</h3>
-        <p>بناء تطبيقات ويب آمنة مع RESTful APIs وإدارة قواعد البيانات</p>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: 90%;">
-            <span class="progress-value">90%</span>
-          </div>
+        <h3 data-translate="laravelTitle">Laravel</h3>
+        <p data-translate="laravelDesc">بناء تطبيقات ويب آمنة مع RESTful APIs وإدارة قواعد البيانات</p>
+        <div class="progress-container" data-value="90%">
+          <div class="progress-bar"></div>
+          <span class="progress-value" data-translate="laravelPercent">90%</span>
         </div>
       </div>
       
@@ -324,12 +85,11 @@
         <div class="skill-icon">
           <i class="fas fa-code"></i>
         </div>
-        <h3>PHP</h3>
-        <p>برمجة خوادم الويب وإنشاء أنظمة إدارة المحتوى المخصصة</p>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: 85%;">
-            <span class="progress-value">85%</span>
-          </div>
+        <h3 data-translate="phpTitle">PHP</h3>
+        <p data-translate="phpDesc">برمجة خوادم الويب وإنشاء أنظمة إدارة المحتوى المخصصة</p>
+        <div class="progress-container" data-value="85%">
+          <div class="progress-bar"></div>
+          <span class="progress-value" data-translate="phpPercent">85%</span>
         </div>
       </div>
     </div>
@@ -337,18 +97,17 @@
 
   <!-- قواعد البيانات -->
   <div class="skills-category" data-aos="fade-up">
-    <h2 class="category-title"><i class="fas fa-database"></i> قواعد البيانات والتحليل</h2>
+    <h2 class="category-title" data-translate="databaseTitle"><i class="fas fa-database"></i> قواعد البيانات والتحليل</h2>
     <div class="skills-grid">
       <div class="skill-card">
         <div class="skill-icon">
           <i class="fas fa-database"></i>
         </div>
-        <h3>تحليل قواعد البيانات</h3>
-        <p>تصميم قواعد بيانات متكاملة مع تحسين الأداء والاستعلامات</p>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: 92%;">
-            <span class="progress-value">92%</span>
-          </div>
+        <h3 data-translate="dbAnalysisTitle">تحليل قواعد البيانات</h3>
+        <p data-translate="dbAnalysisDesc">تصميم قواعد بيانات متكاملة مع تحسين الأداء والاستعلامات</p>
+        <div class="progress-container" data-value="92%">
+          <div class="progress-bar"></div>
+          <span class="progress-value" data-translate="dbAnalysisPercent">92%</span>
         </div>
       </div>
       
@@ -356,12 +115,11 @@
         <div class="skill-icon">
           <i class="fas fa-chart-line"></i>
         </div>
-        <h3>تحليل البيانات</h3>
-        <p>تحليل مجموعات البيانات الكبيرة وإنشاء تقارير مرئية</p>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: 80%;">
-            <span class="progress-value">80%</span>
-          </div>
+        <h3 data-translate="dataAnalysisTitle">تحليل البيانات</h3>
+        <p data-translate="dataAnalysisDesc">تحليل مجموعات البيانات الكبيرة وإنشاء تقارير مرئية</p>
+        <div class="progress-container" data-value="80%">
+          <div class="progress-bar"></div>
+          <span class="progress-value" data-translate="dataAnalysisPercent">80%</span>
         </div>
       </div>
     </div>
@@ -369,18 +127,17 @@
 
   <!-- أنظمة IoT -->
   <div class="skills-category" data-aos="fade-up">
-    <h2 class="category-title"><i class="fas fa-microchip"></i> أنظمة IoT والإلكترونيات</h2>
+    <h2 class="category-title" data-translate="iotTitle"><i class="fas fa-microchip"></i> أنظمة IoT والإلكترونيات</h2>
     <div class="skills-grid">
       <div class="skill-card">
         <div class="skill-icon">
           <i class="fas fa-microchip"></i>
         </div>
-        <h3>Arduino</h3>
-        <p>برمجة المتحكمات وربط الحساسات مع الأنظمة الذكية</p>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: 85%;">
-            <span class="progress-value">85%</span>
-          </div>
+        <h3 data-translate="arduinoTitle">Arduino</h3>
+        <p data-translate="arduinoDesc">برمجة المتحكمات وربط الحساسات مع الأنظمة الذكية</p>
+        <div class="progress-container" data-value="85%">
+          <div class="progress-bar"></div>
+          <span class="progress-value" data-translate="arduinoPercent">85%</span>
         </div>
       </div>
     </div>
@@ -388,18 +145,17 @@
 
   <!-- تطوير الواجهة الأمامية -->
   <div class="skills-category" data-aos="fade-up">
-    <h2 class="category-title"><i class="fas fa-code"></i> تطوير الواجهة الأمامية</h2>
+    <h2 class="category-title" data-translate="frontendTitle"><i class="fas fa-code"></i> تطوير الواجهة الأمامية</h2>
     <div class="skills-grid">
       <div class="skill-card">
         <div class="skill-icon">
           <i class="fab fa-html5"></i>
         </div>
-        <h3>HTML & CSS</h3>
-        <p>بناء واجهات مستخدم متجاوبة وجذابة مع أحدث معايير الويب</p>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: 88%;">
-            <span class="progress-value">88%</span>
-          </div>
+        <h3 data-translate="htmlCssTitle">HTML & CSS</h3>
+        <p data-translate="htmlCssDesc">بناء واجهات مستخدم متجاوبة وجذابة مع أحدث معايير الويب</p>
+        <div class="progress-container" data-value="88%">
+          <div class="progress-bar"></div>
+          <span class="progress-value" data-translate="htmlCssPercent">88%</span>
         </div>
       </div>
       
@@ -407,12 +163,11 @@
         <div class="skill-icon">
           <i class="fab fa-js"></i>
         </div>
-        <h3>JavaScript</h3>
-        <p>إضافة التفاعلية والوظائف المتقدمة لتطبيقات الويب</p>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: 80%;">
-            <span class="progress-value">80%</span>
-          </div>
+        <h3 data-translate="jsTitle">JavaScript</h3>
+        <p data-translate="jsDesc">إضافة التفاعلية والوظائف المتقدمة لتطبيقات الويب</p>
+        <div class="progress-container" data-value="80%">
+          <div class="progress-bar"></div>
+          <span class="progress-value" data-translate="jsPercent">80%</span>
         </div>
       </div>
     </div>
@@ -421,7 +176,7 @@
 
 <footer class="main-footer">
   <div class="container">
-    <p>© 2025 أيمن توفيق عبدالودود - جميع الحقوق محفوظة</p>
+    <p data-translate="copyright">© 2025 أيمن توفيق عبدالودود - جميع الحقوق محفوظة</p>
     <div class="social-links">
       <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
       <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
@@ -433,136 +188,72 @@
 
 <!-- JavaScript -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/header.js"></script>
+
 <script>
-  // تهيئة تأثيرات الحركة
-  AOS.init({
-    duration: 800,
-    once: true,
-    easing: 'ease-out-quad'
-  });
-
-  // تبديل الوضع الليلي
- const themeToggle = document.getElementById("theme-toggle");
-const body = document.body;
-
-// التحقق من تفضيل المستخدم المحفوظ
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light") {
-  body.classList.add("light");
-  body.classList.remove("dark");
-  // تغيير أيقونة الزر إلى القمر
-  const icon = themeToggle.querySelector('i');
-  icon.classList.replace('fa-sun', 'fa-moon');
-} else {
-  // الوضع الافتراضي: dark
-  body.classList.add("dark");
-  body.classList.remove("light");
-  const icon = themeToggle.querySelector('i');
-  icon.classList.replace('fa-moon', 'fa-sun');
+// تحميل ملف الترجمة
+async function loadTranslations() {
+  try {
+    const response = await fetch('lang/translations.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const translations = await response.json();
+    return translations;
+  } catch (error) {
+    console.error('Failed to load translations:', error);
+    return null;
+  }
 }
 
-// إضافة مستمع للنقر لتبديل الوضع
-themeToggle.addEventListener("click", () => {
-  if (body.classList.contains("dark")) {
-    body.classList.replace("dark", "light");
-    localStorage.setItem("theme", "light");
-    // تغيير الأيقونة إلى القمر
-    const icon = themeToggle.querySelector('i');
-    icon.classList.replace('fa-sun', 'fa-moon');
-  } else {
-    body.classList.replace("light", "dark");
-    localStorage.setItem("theme", "dark");
-    // تغيير الأيقونة إلى الشمس
-    const icon = themeToggle.querySelector('i');
-    icon.classList.replace('fa-moon', 'fa-sun');
+// تطبيق الترجمة على العناصر
+function applyTranslations(translations, language) {
+  const elements = document.querySelectorAll('[data-translate]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-translate');
+    if (translations[language] && translations[language][key]) {
+      const translatedText = translations[language][key];
+      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+          element.placeholder = translatedText;
+      } else if (element.tagName === 'TITLE' || element.tagName === 'META') {
+          if (element.hasAttribute('content')) {
+              element.setAttribute('content', translatedText);
+          } else {
+              element.textContent = translatedText;
+          }
+      } else {
+          element.innerHTML = translatedText;
+      }
+    }
+  });
+}
+
+// تغيير اللغة
+async function changeLanguage(language) {
+  const translations = await loadTranslations();
+  if (translations) {
+    applyTranslations(translations, language);
+    // حفظ اللغة المختارة في localStorage
+    localStorage.setItem('selectedLanguage', language);
   }
+}
+
+// تحميل اللغة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', async () => {
+  const savedLanguage = localStorage.getItem('selectedLanguage') || 'ar'; // اللغة الافتراضية
+  await changeLanguage(savedLanguage);
+  
+  // تفعيل تأثيرات التقدم بعد الترجمة
+  document.querySelectorAll('.progress-container').forEach(container => {
+    const value = container.getAttribute('data-value') || '0%';
+    const bar = container.querySelector('.progress-bar');
+    bar.style.width = '0';
+    setTimeout(() => {
+      bar.style.transition = "width 5.5s cubic-bezier(.22,1,.36,1)";
+      bar.style.width = value;
+    }, 300);
+  });
 });
-
-  // قائمة الهاتف
-  const menuBtn = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-
-  menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-    menuBtn.setAttribute('aria-expanded', navLinks.classList.contains("show"));
-  });
-
-  // إغلاق القائمة عند النقر على رابط
-  document.querySelectorAll('#nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove("show");
-      menuBtn.setAttribute('aria-expanded', false);
-    });
-  });
-
-  // تأثير المطر
-  const canvas = document.getElementById("flutterRain");
-  const ctx = canvas.getContext("2d");
-  
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-
-  let drops = [];
-   const chars = ["</>", "c++", "c#", "js", "db", "dart", "flutter", "python", "laravel", "html", "css", "php"];
-  
-  for (let i = 0; i < 50; i++) {
-    drops.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      speedY: 1 + Math.random() * 3,
-      speedX: Math.random() * 0.5 - 0.25,
-      text: chars[Math.floor(Math.random() * chars.length)],
-      size: 14 + Math.random() * 10,
-      opacity: 0.1 + Math.random() * 0.3
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.font = 'bold 16px Arial';
-    
-    drops.forEach((drop) => {
-      ctx.font = `${drop.size}px Arial`;
-      ctx.fillStyle = `rgba(0, 188, 212, ${drop.opacity})`;
-      ctx.fillText(drop.text, drop.x, drop.y);
-      
-      drop.y += drop.speedY;
-      drop.x += drop.speedX;
-      
-      if (drop.y > canvas.height) {
-        drop.y = -20;
-        drop.x = Math.random() * canvas.width;
-      }
-      
-      if (drop.x > canvas.width || drop.x < 0) {
-        drop.speedX = -drop.speedX;
-      }
-    });
-    
-    requestAnimationFrame(draw);
-  }
-  
-  draw();
-
-  // تحريك أشرطة التقدم عند التمرير
-  const progressBars = document.querySelectorAll('.progress-bar');
-  
-  function animateProgressBars() {
-    progressBars.forEach(bar => {
-      const value = bar.style.width;
-      bar.style.width = '0';
-      setTimeout(() => {
-        bar.style.width = value;
-      }, 100);
-    });
-  }
-
-  window.addEventListener('load', animateProgressBars);
 </script>
 
 </body>

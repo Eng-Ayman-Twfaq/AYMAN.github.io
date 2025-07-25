@@ -1,0 +1,263 @@
+:root {
+  --primary-color: #00bcd4;
+  --secondary-color: #764ba2;
+  --card-bg: #fff;
+  --card-bg-dark: #181c24;
+  --text-color: #222;
+  --text-color-dark: #e0f7fa;
+  --progress-bg: #e0e0e0;
+  --progress-bg-dark: #333;
+}
+
+/* خلفية متدرجة للصفحة */
+body {
+  background: linear-gradient(120deg, #e0f7fa 0%, #fff 100%);
+  font-family: 'Cairo', sans-serif;
+  transition: background 0.4s;
+}
+body.dark {
+  background: linear-gradient(120deg, #23272b 0%, #181c24 100%);
+  color: var(--text-color-dark);
+}
+
+/* رأس القسم */
+.section-header {
+  text-align: center;
+  margin-bottom: 36px;
+  animation: fadeInDown 1.2s;
+}
+.section-header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-top: 100px;
+  letter-spacing: 1px;
+  position: relative;
+}
+.section-header h1::after {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 70px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+.section-header p {
+  color: var(--text-color);
+  font-size: 1.08rem;
+  margin-top: 10px;
+  opacity: 0.85;
+}
+body.dark .section-header p {
+  color: var(--text-color-dark);
+}
+
+/* عنوان الفئة */
+.category-title {
+  font-size: 1.15rem;
+  color: var(--primary-color);
+  margin-bottom: 18px;
+  padding-right: 10px;
+  border-right: 4px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* شبكة المهارات */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+/* كارت المهارة */
+.skill-card {
+  background: linear-gradient(135deg, #fff 70%, #e0f7fa 100%);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,188,212,0.09), 0 1.5px 8px rgba(0,0,0,0.04);
+  padding: 16px 8px 14px 8px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  transition: transform 0.22s cubic-bezier(.22,1,.36,1), box-shadow 0.22s;
+  animation: cardFadeIn 1s cubic-bezier(.22,1,.36,1);
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+@keyframes cardFadeIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.97);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+.skill-card:hover {
+  transform: translateY(-7px) scale(1.03) rotateZ(-0.5deg);
+  box-shadow: 0 8px 24px rgba(0,188,212,0.13), 0 2px 12px rgba(0,0,0,0.07);
+}
+
+/* حدود متدرجة متحركة للكارت */
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 14px;
+  background: linear-gradient(120deg, #00bcd4, #764ba2, #00bcd4, #764ba2);
+  background-size: 300% 300%;
+  animation: borderMove 3s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.35;
+  filter: blur(1.1px);
+  transition: opacity 0.3s, filter 0.3s;
+}
+.skill-card:hover::before {
+  opacity: 0.7;
+  filter: blur(0.2px);
+}
+@keyframes borderMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.skill-card > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* الوضع الليلي للكارت */
+body.dark .skill-card {
+  background: linear-gradient(135deg, var(--card-bg-dark, #23272b) 70%, #004d40 100%);
+  color: var(--text-color-dark);
+}
+
+/* أيقونة المهارة */
+.skill-icon {
+  font-size: 2.1rem;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  filter: drop-shadow(0 2px 8px #00bcd4a0);
+  transition: color 0.2s, filter 0.2s;
+  animation: iconPop 1.2s;
+}
+@keyframes iconPop {
+  0% { opacity: 0; transform: scale(0.7);}
+  100% { opacity: 1; transform: scale(1);}
+}
+.skill-card:hover .skill-icon {
+  color: #764ba2;
+  filter: drop-shadow(0 2px 12px #764ba2a0);
+}
+
+/* عنوان المهارة */
+.skill-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+body.dark .skill-card h3 {
+  color: #00bcd4;
+}
+
+/* وصف المهارة */
+.skill-card p {
+  font-size: 0.98rem;
+  color: var(--text-color, #333);
+  opacity: 0.85;
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+body.dark .skill-card p {
+  color: #e0f7fa;
+}
+
+/* شريط التقدم */
+.progress-container {
+  width: 100%;
+  background: var(--progress-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 12px;
+  margin-top: 12px;
+  margin-bottom: 0;
+  box-shadow: 0 1px 6px rgba(0,188,212,0.09);
+}
+body.dark .progress-container {
+  background: var(--progress-bg-dark);
+}
+.progress-bar {
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 10px;
+  position: relative;
+  transition: width 1.2s cubic-bezier(.22,1,.36,1);
+  width: 0; /* هذا السطر ضروري */
+}
+.progress-value {
+  position: absolute;
+  top: -22px;
+  right: 0;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-shadow: 0 1px 6px #fff;
+}
+body.dark .progress-value {
+  color: #00bcd4;
+  text-shadow: 0 1px 6px #23272b;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .section-header h1 { font-size: 1.4rem; }
+  .category-title { font-size: 1rem; }
+  .skills-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+  .skill-card { padding: 12px 6px 10px 6px; }
+}
+@media (max-width: 768px) {
+  .skills-section { padding: 28px 0; }
+  .section-header { margin-bottom: 24px; }
+  .section-header h1 { font-size: 1.1rem; }
+  .category-title { font-size: 0.98rem; }
+  .skills-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+  .skill-card { padding: 8px 3px 8px 3px; }
+  .skill-icon { font-size: 1.2rem; }
+}
+@media (max-width: 576px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .section-header h1 { font-size: 1rem; }
+  .category-title { font-size: 0.9rem; }
+  .skill-card h3 { font-size: 0.98rem; }
+  .skill-card p { font-size: 0.92rem; }
+  .progress-value { font-size: 0.85rem; top: -18px; }
+}
+
+@media (max-width: 576px) {
+  .skills-section.container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .skill-card {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}

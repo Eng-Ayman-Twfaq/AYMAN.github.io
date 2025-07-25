@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="google-site-verification" content="cW5wvT3OTyyF2JSdCPLCRam4Ru02dSH-FmF3u-wsj-U" />
 <!-- عنوان الصفحة -->
-<title>تواصل معي | أيمن توفيق للبرمجيات</title>
+<title data-translate="pageTitle">تواصل معي | أيمن توفيق للبرمجيات</title>
  <!-- Favicon -->
   <link rel="icon" href="assets/profile-placeholder.png" type="image/x-icon">
   <link rel="shortcut icon" href="assets/profile-placeholder.png" type="image/x-icon">
@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
   <link rel="manifest" href="/site.webmanifest">
 <!-- وصف الصفحة -->
-<meta name="description" content="هل لديك فكرة مشروع أو استفسار؟ تواصل مع أيمن توفيق، مطور برمجيات ومهندس تقني يقدم خدمات تطوير مواقع وتطبيقات احترافية.">
+<meta name="description" content="هل لديك فكرة مشروع أو استفسار؟ تواصل مع أيمن توفيق، مطور برمجيات ومهندس تقني يقدم خدمات تطوير مواقع وتطبيقات احترافية." data-translate="metaDescription">
 
 <!-- كلمات مفتاحية -->
 <meta name="keywords" content="تواصل مع أيمن توفيق, اتصل بأيمن توفيق, تواصل برمجي, مطور ويب, تطوير مواقع, خدمات برمجية, Ayman Tawfiq Contact, اتصل بالمطور">
@@ -32,372 +32,57 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 
   <!-- External Header Style -->
-  <link rel="stylesheet" href="style.css"/>
-
-  <style>
-    :root {
-      --primary: #00bcd4;
-      --light-bg: #ffffff;
-      --dark-bg: #121212;
-      --light-text: #111;
-      --dark-text: #eee;
-      --form-light: #f5f5f5;
-      --form-dark: #1f1f1f;
-      --footer-light: #f1f1f1;
-      --footer-dark: #1e1e1e;
-    }
-
-    .contact-section {
-      padding: 60px 0;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-header h2 {
-      color: var(--primary);
-      font-size: 32px;
-      margin-bottom: 15px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-header h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      right: 50%;
-      transform: translateX(50%);
-      width: 80px;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 3px;
-    }
-
-    .section-header p {
-      color: var(--text-color);
-      font-size: 17px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-
-    .contact-form {
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      transition: all 0.3s;
-      border: 1px solid rgba(0,188,212,0.1);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: var(--text-color);
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 12px 15px;
-      font-size: 16px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      background: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'Cairo', sans-serif;
-      transition: all 0.3s;
-    }
-
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(0,188,212,0.2);
-      outline: none;
-    }
-
-    .submit-btn {
-      background: var(--primary);
-      color: white;
-      padding: 14px 30px;
-      font-size: 17px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-weight: 600;
-      width: 100%;
-    }
-
-    .submit-btn:hover {
-      background: #0097a7;
-      transform: translateY(-2px);
-    }
-
-    .contact-info {
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      transition: all 0.3s;
-      border: 1px solid rgba(0,188,212,0.1);
-    }
-
-    .info-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
-    }
-
-    .info-icon {
-      width: 50px;
-      height: 50px;
-      background: rgba(0,188,212,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 15px;
-      color: var(--primary);
-      font-size: 20px;
-    }
-
-    .info-content h4 {
-      color: var(--primary);
-      margin-bottom: 5px;
-      font-size: 18px;
-    }
-
-    .info-content p, .info-content a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-size: 16px;
-      transition: color 0.3s;
-    }
-
-    .info-content a:hover {
-      color: var(--primary);
-      text-decoration: underline;
-    }
-
-    .map-container {
-      margin-top: 40px;
-      grid-column: 1 / -1;
-    }
-
-    .map {
-      width: 100%;
-      height: 400px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      border: none;
-    }
-
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 30px;
-      left: 30px;
-      background: #25D366;
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      text-decoration: none;
-      z-index: 999;
-      transition: all 0.3s;
-      animation: pulse 2s infinite;
-    }
-
-    .whatsapp-btn:hover {
-      background: #20ba57;
-      transform: scale(1.1);
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 992px) {
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .map {
-        height: 350px;
-      }
-      
-      .section-header h2 {
-        font-size: 28px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .contact-section {
-        padding: 40px 0;
-      }
-      
-      .contact-form, .contact-info {
-        padding: 25px;
-      }
-      
-      .info-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .info-icon {
-        margin-left: 0;
-        margin-bottom: 10px;
-      }
-      
-      .whatsapp-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-        bottom: 20px;
-        left: 20px;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .section-header h2 {
-        font-size: 24px;
-      }
-      
-      .section-header p {
-        font-size: 16px;
-      }
-      
-      input, textarea, select {
-        padding: 10px 12px;
-        font-size: 15px;
-      }
-      
-      .submit-btn {
-        padding: 12px;
-        font-size: 16px;
-      }
-      
-      .info-content h4 {
-        font-size: 17px;
-      }
-      
-      .info-content p, .info-content a {
-        font-size: 15px;
-      }
-      
-      .map {
-        height: 300px;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .contact-form, .contact-info {
-        padding: 20px;
-      }
-      
-      .section-header h2 {
-        font-size: 22px;
-      }
-      
-      .map {
-        height: 250px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/contact.css"/>
 </head>
 <body class="dark">
 <canvas id="flutterRain"></canvas>
-<header class="main-header">
-  <div class="container nav-container">
-    <h1 class="logo">أيمن توفيق</h1>
-    
-    <!-- زر القائمة للهاتف -->
-    <button class="menu-toggle" id="menu-toggle" aria-label="قائمة التنقل">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- زر تبديل الثيم -->
-    <button id="theme-toggle" aria-label="تبديل الوضع الليلي">
-      <i class="fas fa-sun"></i>
-    </button>
-
-    <!-- روابط التنقل -->
-    <nav id="main-nav">
-      <ul id="nav-links">
-        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-        <li><a href="about.html"><i class="fas fa-user"></i> من أنا</a></li>
-        <li><a href="projects.html"><i class="fas fa-code"></i> المشاريع</a></li>
-        <li><a href="skills.html"><i class="fas fa-cogs"></i> المهارات</a></li>
-        <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> تواصل</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<!-- رأس الصفحة -->
+<div id="header-placeholder"></div>
 
 <section class="contact-section container">
   <div class="section-header" data-aos="fade-down">
-    <h2><i class="fas fa-envelope-open-text"></i> تواصل معي</h2>
-    <p>يمكنك التواصل معي عبر النموذج أدناه أو عبر وسائل التواصل الأخرى</p>
+    <h2 data-translate="contactHeader"><i class="fas fa-envelope-open-text"></i> تواصل معي</h2>
+    <p data-translate="contactDescription">يمكنك التواصل معي عبر النموذج أدناه أو عبر وسائل التواصل الأخرى</p>
   </div>
 
   <div class="contact-container">
     <div class="contact-form" data-aos="fade-right">
+      <!-- تم إزالة action و method من <form> لأننا نتعامل معه عبر JavaScript -->
       <form id="contact-form">
         <div class="form-group">
-          <label for="name"><i class="fas fa-user"></i> الاسم الكامل</label>
-          <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل"/>
+          <label for="name" data-translate="nameLabel"><i class="fas fa-user"></i> الاسم الكامل</label>
+          <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل" data-translate="namePlaceholder"/>
         </div>
         
         <div class="form-group">
-          <label for="email"><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
-          <input type="email" id="email" name="email" required placeholder="example@mail.com"/>
+          <label for="email" data-translate="emailLabel"><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+          <input type="email" id="email" name="email" required placeholder="example@mail.com" data-translate="emailPlaceholder"/>
         </div>
+        
+       <div class="form-group">
+  <label for="subject" data-translate="subjectLabel"><i class="fas fa-tag"></i> الخدمة المطلوبة</label>
+  <select id="subject" name="subject" required>
+    <option value="" disabled selected data-translate="subjectPlaceholder">اختر الخدمة التي تحتاجها</option>
+    <option value="تطوير-موقع-ويب" data-translate="webDevelopmentOption">تطوير موقع ويب</option>
+    <option value="تطوير-تطبيق-جوال" data-translate="mobileAppOption">تطوير تطبيق جوال (Flutter)</option>
+    <option value="برمجة-Laravel" data-translate="laravelDevelopmentOption">برمجة Laravel</option>
+    <option value="برمجة-انظمة-مدمجة" data-translate="embeddedSystemsOption">برمجة أنظمة مدمجة (Arduino)</option>
+    <option value="تحليل-تصميم-قواعد-بيانات" data-translate="databaseDesignOption">تحليل وتصميم قواعد بيانات</option>
+    <option value="استشارة-تقنية" data-translate="technicalConsultationOption">استشارة تقنية</option>
+    <option value="اخرى" data-translate="otherServiceOption">خدمة أخرى</option>
+  </select>
+</div>
         
         <div class="form-group">
-          <label for="subject"><i class="fas fa-tag"></i> الموضوع</label>
-          <select id="subject" name="subject" required>
-            <option value="" disabled selected>اختر موضوع الرسالة</option>
-            <option value="استشارة">استشارة تقنية</option>
-            <option value="مشروع">عرض مشروع</option>
-            <option value="توظيف">عرض توظيف</option>
-            <option value="أخرى">استفسار آخر</option>
-          </select>
+          <label for="message" data-translate="messageLabel"><i class="fas fa-comment"></i> الرسالة</label>
+          <textarea id="message" name="message" required placeholder="اكتب رسالتك هنا..." data-translate="messagePlaceholder"></textarea>
         </div>
         
-        <div class="form-group">
-          <label for="message"><i class="fas fa-comment"></i> الرسالة</label>
-          <textarea id="message" name="message" required placeholder="اكتب رسالتك هنا..."></textarea>
-        </div>
-        
-        <button type="submit" class="submit-btn" onclick="window.location.href='thankyou.html'">
-  <i class="fas fa-paper-plane"></i> إرسال الرسالة
-</button>
+        <!-- تم إزالة onclick من الزر -->
+        <button type="submit" class="submit-btn" data-translate="submitBtn">
+          <i class="fas fa-paper-plane"></i> إرسال الرسالة
+        </button>
       </form>
     </div>
 
@@ -407,8 +92,8 @@
           <i class="fas fa-map-marker-alt"></i>
         </div>
         <div class="info-content">
-          <h4>موقعي</h4>
-          <p>صنعاء، اليمن</p>
+          <h4 data-translate="locationTitle">موقعي</h4>
+          <p data-translate="locationValue">صنعاء، اليمن</p>
         </div>
       </div>
       
@@ -417,8 +102,8 @@
           <i class="fas fa-envelope"></i>
         </div>
         <div class="info-content">
-          <h4>البريد الإلكتروني</h4>
-          <a href="mailto:ayman.tawfaq.developer@gmail.com">ayman.tawfaq.developer@gmail.com</a>
+          <h4 data-translate="emailTitle">البريد الإلكتروني</h4>
+          <a href="mailto:ayman.tawfaq.developer@gmail.com" data-translate="emailLink">ayman.tawfaq.developer@gmail.com</a>
         </div>
       </div>
       
@@ -427,8 +112,8 @@
           <i class="fab fa-whatsapp"></i>
         </div>
         <div class="info-content">
-          <h4>واتساب</h4>
-          <a href="https://wa.me/967770883615" target="_blank">+967 770 883 615</a>
+          <h4 data-translate="whatsappTitle">واتساب</h4>
+          <a href="https://wa.me/967770883615" target="_blank" data-translate="whatsappLink">+967 770 883 615</a>
         </div>
       </div>
       
@@ -437,8 +122,8 @@
           <i class="fab fa-github"></i>
         </div>
         <div class="info-content">
-          <h4>GitHub</h4>
-          <a href="https://github.com/Eng-Ayman-Twfaq" target="_blank">Eng-Ayman-Twfaq</a>
+          <h4 data-translate="githubTitle">GitHub</h4>
+          <a href="https://github.com/Eng-Ayman-Twfaq" target="_blank" data-translate="githubLink">Eng-Ayman-Twfaq</a>
         </div>
       </div>
     </div>
@@ -455,13 +140,13 @@
   </div>
 </section>
 
-<a href="https://wa.me/967770883615" class="whatsapp-btn" target="_blank" aria-label="راسلني على واتساب">
+<a href="https://wa.me/967770883615" class="whatsapp-btn" target="_blank" aria-label="راسلني على واتساب" data-translate="whatsappFloat">
   <i class="fab fa-whatsapp"></i>
 </a>
 
 <footer class="main-footer">
   <div class="container">
-    <p>© 2025 أيمن توفيق عبدالودود - جميع الحقوق محفوظة</p>
+    <p data-translate="copyright">© 2025 أيمن توفيق عبدالودود - جميع الحقوق محفوظة</p>
     <div class="social-links">
       <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
       <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
@@ -473,128 +158,34 @@
 
 <!-- JavaScript -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/header.js"></script>
+
+<!-- سكريبت مخصص لمعالجة إرسال النموذج -->
 <script>
-  // تهيئة تأثيرات الحركة
-  AOS.init({
-    duration: 800,
-    once: true,
-    easing: 'ease-out-quad'
-  });
+  document.addEventListener('DOMContentLoaded', function() {
+    // تفعيل AOS إذا لم يتم تفعيله في header.js
+    if (typeof AOS !== 'undefined') {
+       AOS.init({
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true
+      });
+    }
 
-  // تبديل الوضع الليلي
-const themeToggle = document.getElementById("theme-toggle");
-const body = document.body;
-
-// التحقق من تفضيل المستخدم المحفوظ
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light") {
-  body.classList.add("light");
-  body.classList.remove("dark");
-  // تغيير أيقونة الزر إلى القمر
-  const icon = themeToggle.querySelector('i');
-  icon.classList.replace('fa-sun', 'fa-moon');
-} else {
-  // الوضع الافتراضي: dark
-  body.classList.add("dark");
-  body.classList.remove("light");
-  const icon = themeToggle.querySelector('i');
-  icon.classList.replace('fa-moon', 'fa-sun');
-}
-
-// إضافة مستمع للنقر لتبديل الوضع
-themeToggle.addEventListener("click", () => {
-  if (body.classList.contains("dark")) {
-    body.classList.replace("dark", "light");
-    localStorage.setItem("theme", "light");
-    // تغيير الأيقونة إلى القمر
-    const icon = themeToggle.querySelector('i');
-    icon.classList.replace('fa-sun', 'fa-moon');
-  } else {
-    body.classList.replace("light", "dark");
-    localStorage.setItem("theme", "dark");
-    // تغيير الأيقونة إلى الشمس
-    const icon = themeToggle.querySelector('i');
-    icon.classList.replace('fa-moon', 'fa-sun');
-  }
-});
-
-  // قائمة الهاتف
-  const menuBtn = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-
-  menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-    menuBtn.setAttribute('aria-expanded', navLinks.classList.contains("show"));
-  });
-
-  // إغلاق القائمة عند النقر على رابط
-  document.querySelectorAll('#nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove("show");
-      menuBtn.setAttribute('aria-expanded', false);
-    });
-  });
-
-  // تأثير المطر
-  const canvas = document.getElementById("flutterRain");
-  const ctx = canvas.getContext("2d");
-  
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-
-  let drops = [];
-   const chars = ["</>", "c++", "c#", "js", "db", "dart", "flutter", "python", "laravel", "html", "css", "php"];
-  
-  for (let i = 0; i < 50; i++) {
-    drops.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      speedY: 1 + Math.random() * 3,
-      speedX: Math.random() * 0.5 - 0.25,
-      text: chars[Math.floor(Math.random() * chars.length)],
-      size: 14 + Math.random() * 10,
-      opacity: 0.1 + Math.random() * 0.3
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.font = 'bold 16px Arial';
-    
-    drops.forEach((drop) => {
-      ctx.font = `${drop.size}px Arial`;
-      ctx.fillStyle = `rgba(0, 188, 212, ${drop.opacity})`;
-      ctx.fillText(drop.text, drop.x, drop.y);
-      
-      drop.y += drop.speedY;
-      drop.x += drop.speedX;
-      
-      if (drop.y > canvas.height) {
-        drop.y = -20;
-        drop.x = Math.random() * canvas.width;
-      }
-      
-      if (drop.x > canvas.width || drop.x < 0) {
-        drop.speedX = -drop.speedX;
-      }
-    });
-    
-    requestAnimationFrame(draw);
-  }
-  
-  draw();
-
-  // إرسال النموذج
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    // هنا يمكنك إضافة كود إرسال النموذج
-    // alert("تم إرسال رسالتك بنجاح، سأتواصل معك قريبًا!");
-    // this.reset();
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(event) {
+        // منع السلوك الافتراضي لإرسال النموذج
+        event.preventDefault();
+        
+        // هنا يمكنك إضافة منطق إرسال البيانات عبر Ajax إذا رغبت
+        // على سبيل المثال باستخدام fetch() أو XMLHttpRequest
+        // ولكن في هذه الحالة، نريد فقط إعادة التوجيه
+        
+        // إعادة التوجيه إلى صفحة الشكر
+        window.location.href = 'thankyou.html';
+      });
+    }
   });
 </script>
 
