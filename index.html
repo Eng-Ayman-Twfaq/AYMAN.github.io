@@ -1197,19 +1197,26 @@ async function changeLanguage(language) {
 }
 // نظام عداد الزوار
 function updateVisitorCounter() {
-  // الحصول على العداد من localStorage
+  // تحقق إذا كان هذا أول زيارة من هذا الجهاز
+  const hasVisited = localStorage.getItem('hasVisited');
+
   let visitorCount = localStorage.getItem('visitorCount');
-  // إذا لم يكن موجوداً، نبدأ من 1000
+
   if (visitorCount === null) {
-    visitorCount = 1000;
+    // إذا لم يكن العداد موجودًا، ابدأ من 1000
+    visitorCount = 45;
   } else {
     visitorCount = parseInt(visitorCount);
   }
-  // زيادة العداد
-  visitorCount++;
-  // حفظ القيمة الجديدة
-  localStorage.setItem('visitorCount', visitorCount);
-  // عرض العداد مع تأثير العد
+
+  if (!hasVisited) {
+    // فقط إذا لم يزر الموقع من قبل، زِد العداد
+    visitorCount++;
+    localStorage.setItem('visitorCount', visitorCount);
+    localStorage.setItem('hasVisited', 'true'); // سجّل الزيارة
+  }
+
+  // عرض العداد (مع تأثير العد)
   const counterElement = document.getElementById('visitorCount');
   if (counterElement) {
     animateCounter(counterElement, visitorCount - 1, visitorCount, 2000);
