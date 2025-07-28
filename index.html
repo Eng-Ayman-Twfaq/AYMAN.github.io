@@ -1194,34 +1194,48 @@ async function changeLanguage(language) {
     // حفظ اللغة المختارة في localStorage
     localStorage.setItem('selectedLanguage', language);
   }
+  
 }
 // نظام عداد الزوار
-function updateVisitorCounter() {
-  // تحقق إذا كان هذا أول زيارة من هذا الجهاز
-  const hasVisited = localStorage.getItem('hasVisited');
+function animateCounter(element, start, end, duration) {
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    const value = Math.floor(progress * (end - start) + start);
+    element.textContent = value.toLocaleString();
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
 
+function updateVisitorCounter() {
+  const hasVisited = localStorage.getItem('hasVisited');
   let visitorCount = localStorage.getItem('visitorCount');
 
   if (visitorCount === null) {
-    // إذا لم يكن العداد موجودًا، ابدأ من 1000
-    visitorCount = 45;
+    visitorCount = 45; // الرقم الافتتاحي
   } else {
     visitorCount = parseInt(visitorCount);
   }
 
   if (!hasVisited) {
-    // فقط إذا لم يزر الموقع من قبل، زِد العداد
     visitorCount++;
     localStorage.setItem('visitorCount', visitorCount);
-    localStorage.setItem('hasVisited', 'true'); // سجّل الزيارة
+    localStorage.setItem('hasVisited', 'true');
   }
 
-  // عرض العداد (مع تأثير العد)
   const counterElement = document.getElementById('visitorCount');
   if (counterElement) {
-    animateCounter(counterElement, visitorCount - 1, visitorCount, 2000);
+    // ابدأ من 1 وارتفع إلى visitorCount
+    animateCounter(counterElement, 1, visitorCount, 2000);
   }
 }
+
+// تنفيذ العداد عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', updateVisitorCounter);
 // تأثير العد المتحرك
 function animateCounter(element, start, end, duration) {
   let startTimestamp = null;
@@ -1249,6 +1263,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   // تحديث عداد الزوار
   updateVisitorCounter();
 });
+
+// تنفيذ العداد عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', updateVisitorCounter);
 </script>
 </body>
 </html>
