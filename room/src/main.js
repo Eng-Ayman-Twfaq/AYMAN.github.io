@@ -71,6 +71,24 @@ function curved(w, h, R, canvasTex, x, y, z, ry) {
   const base = new THREE.Mesh(new RoundedBoxGeometry(.95, .035, .5, 3, .015), M('#1b2328', { metalness: .6, roughness: .35 })); base.position.set(0, -h / 2 - .52, .05); base.castShadow = true; g.add(base);
   return g;
 }
+/* projects showcase */
+const PJ = [
+  { id: 'bayn', name: 'Bayn', col: '#12c2cc', stack: ['Laravel 11', 'Flutter', 'MySQL'] },
+  { id: 'alsultan', name: 'Alsultan ERP', col: '#f5a524', stack: ['Flutter', 'Offline sync', 'Laravel'] },
+  { id: 'albaladi', name: 'Albaladi', col: '#e5533d', stack: ['POS', 'Stock', 'Payroll'] },
+  { id: 'wasel', name: 'Wasel', col: '#8b6cff', stack: ['Flutter', 'Delivery', 'Orders'] }
+];
+let projI = -1, projA = 0; const pvHooks = [];
+const pjSrc = PJ.map((p, i) => {
+  const c = document.createElement('canvas'); c.width = 1600; c.height = 700; const g = c.getContext('2d');
+  const bg = g.createLinearGradient(0, 0, 1600, 700); bg.addColorStop(0, '#071820'); bg.addColorStop(1, '#0c2a33'); g.fillStyle = bg; g.fillRect(0, 0, 1600, 700);
+  const rg = g.createRadialGradient(1250, 150, 20, 1250, 150, 700); rg.addColorStop(0, p.col + '66'); rg.addColorStop(1, p.col + '00'); g.fillStyle = rg; g.fillRect(0, 0, 1600, 700);
+  g.strokeStyle = 'rgba(255,255,255,.05)'; g.lineWidth = 1; for (let x = 0; x < 1600; x += 64) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, 700); g.stroke(); } for (let y = 0; y < 700; y += 64) { g.beginPath(); g.moveTo(0, y); g.lineTo(1600, y); g.stroke(); }
+  g.fillStyle = p.col; g.fillRect(110, 200, 90, 8); g.fillStyle = '#fff'; g.font = '700 150px Cairo, sans-serif'; g.textBaseline = 'alphabetic'; g.fillText(p.name, 106, 380);
+  g.font = '600 34px Cairo, sans-serif'; let x = 110; p.stack.forEach(t => { const w = g.measureText(t).width + 44; g.fillStyle = 'rgba(255,255,255,.08)'; g.strokeStyle = p.col; g.lineWidth = 2; g.beginPath(); g.roundRect(x, 440, w, 62, 31); g.fill(); g.stroke(); g.fillStyle = '#e8f6f7'; g.fillText(t, x + 22, 482); x += w + 14; });
+  const o = { cv: c, img: null }; const im = new Image(); im.onload = () => { o.img = im; pvHooks.forEach(f => f()); }; im.src = `assets/projects/${p.id}.webp`; return o;
+});
+const pjGet = i => (pjSrc[i].img || pjSrc[i].cv);
 function mkCanvas(w, h) { const c = document.createElement('canvas'); c.width = w; c.height = h; return [c, c.getContext('2d')]; }
 const [mc, mg] = mkCanvas(1920, 672), mTex = tex(mc);
 function drawMap(t) {
@@ -83,7 +101,17 @@ function drawMap(t) {
   E.forEach(([a, b], i) => { const [ax, ay] = N[a], [bx, by] = N[b]; mg.strokeStyle = '#1b6b75'; mg.lineWidth = 3; mg.beginPath(); mg.moveTo(ax, ay); mg.lineTo(bx, by); mg.stroke();
     for (let k = 0; k < 2; k++) { const u = ((t * .35 + i * .17 + k * .5) % 1); const px = ax + (bx - ax) * u, py = ay + (by - ay) * u; mg.fillStyle = 'rgba(18,194,204,.28)'; mg.beginPath(); mg.arc(px, py, 20, 0, 7); mg.fill(); mg.fillStyle = '#9ffcff'; mg.beginPath(); mg.arc(px, py, 8, 0, 7); mg.fill(); } });
   Object.values(N).forEach(([x, y, tx]) => { mg.font = `600 25px ${mono}`; const tw = mg.measureText(tx).width + 46; mg.fillStyle = '#0f3b44'; mg.strokeStyle = '#12c2cc'; mg.lineWidth = 3; mg.beginPath(); mg.roundRect(x - tw / 2, y - 31, tw, 62, 15); mg.fill(); mg.stroke(); mg.fillStyle = '#e8f6f7'; mg.textAlign = 'center'; mg.fillText(tx, x, y + 9); mg.textAlign = 'left'; });
+  if (projA > .01 && projI >= 0) drawProj();
   mTex.needsUpdate = true;
+}
+function drawProj() {
+  const p = PJ[projI], im = pjGet(projI), iw = im.naturalWidth || im.width, ih = im.naturalHeight || im.height; mg.save(); mg.globalAlpha = projA;
+  mg.fillStyle = '#061219'; mg.fillRect(0, 0, 1920, 672); mg.fillStyle = '#0b2530'; mg.fillRect(0, 0, 1920, 50);
+  ['#ff6b6b', '#ffd166', '#3ddc97'].forEach((c, i) => { mg.fillStyle = c; mg.beginPath(); mg.arc(30 + i * 26, 25, 8, 0, 7); mg.fill(); });
+  mg.fillStyle = '#8fb3b8'; mg.font = `600 22px ${mono}`; mg.fillText(p.id + ' · live', 120, 32);
+  const bw = 1860, bh = 592, sc = Math.min(bw / iw, bh / ih), dw = iw * sc, dh = ih * sc, dx = (1920 - dw) / 2, dy = 60 + (bh - dh) / 2;
+  if (iw / ih < 1.2) { mg.globalAlpha = projA * .25; mg.drawImage(im, 0, 0, iw, ih, 0, 50, 1920, 622); mg.globalAlpha = projA; }
+  mg.shadowColor = p.col; mg.shadowBlur = 40; mg.drawImage(im, dx, dy, dw, dh); mg.shadowBlur = 0; mg.strokeStyle = p.col; mg.lineWidth = 3; mg.strokeRect(dx, dy, dw, dh); mg.restore();
 }
 const [lc, lg] = mkCanvas(1000, 640), lTex = tex(lc);
 const codeLines = [['final class ', '#c792ea', 'SyncOrchestrator', '#7ff3f8'], ['{', '#8fb3b8'], ['  public function ', '#c792ea', 'push', '#82aaff', '(Batch $b)', '#e8f6f7'], ['  {', '#8fb3b8'], ['    $this->idempotency', '#e8f6f7', '->guard', '#82aaff', '($b);', '#e8f6f7'], ['    DB::transaction(fn () =>', '#e8f6f7'], ['      $this->pipeline->run($b)', '#e8f6f7'], ['    );', '#e8f6f7'], ['    // conflict: LastWriteWins', '#5c7f86'], ['    return SyncResult::ok();', '#c3e88d'], ['  }', '#8fb3b8'], ['}', '#8fb3b8']];
@@ -196,12 +224,14 @@ anim.push(t => { const a = dust.geometry.attributes.position; for (let i = 0; i 
 const ST = [{ L: [.3, 2.5, -2.2], S: 4.3 }, { L: [.4, 2.45, -3.4], S: 2.8 }, { L: [-3.6, 3.0, -.6], S: 3.2 }, { L: [-1.45, 1.9, -2.5], S: 2.2 }, { L: [.2, 2.4, -2.2], S: 5.2 }];
 const IDS = ['hero', 'projects', 'skills', 'bayn', 'contact'];
 const DBG = q.has('p') ? parseFloat(q.get('p')) : null;
+let pmx = 0, pmy = 0, tmx = 0, tmy = 0;
+addEventListener('pointermove', e => { tmx = e.clientX / innerWidth * 2 - 1; tmy = e.clientY / innerHeight * 2 - 1; });
 function applyCam(p) {
   const mobile = innerWidth < 820, rtl = document.documentElement.dir === 'rtl';
   const i = Math.min(3, Math.floor(p)), f = p - i, e = f * f * (3 - 2 * f), A = ST[i], B = ST[i + 1], lp = (x, y) => x + (y - x) * e;
   const L = A.L.map((v, k) => lp(v, B.L[k])); let S = lp(A.S, B.S); if (mobile) S *= 1.9;
   cam.left = -S * asp; cam.right = S * asp; cam.top = S; cam.bottom = -S; cam.position.set(10 + L[0] - .2, 8.4 + L[1] - 1.9, 10 + L[2] + 2.2); cam.lookAt(L[0], L[1], L[2]);
-  if (mobile) cam.setViewOffset(W, H, 0, H * .2, W, H); else cam.setViewOffset(W, H, (rtl ? 1 : -1) * W * .24, 0, W, H);
+  if (mobile) cam.setViewOffset(W, H, 0, H * .2, W, H); else cam.setViewOffset(W, H, (rtl ? 1 : -1) * W * .24 + pmx * W * .012, pmy * H * .012, W, H);
   cam.updateProjectionMatrix();
 }
 let curP = DBG !== null ? DBG : 0, tgtP = curP;
@@ -234,6 +264,7 @@ function applyLang(l) {
   document.getElementById('hint').textContent = T[l].hint; document.getElementById('langBtn').textContent = T[l].lang;
   const cv = l === 'ar' ? 'assets/Ayman_Tawfaq_CV_ar.pdf' : 'assets/Ayman_Tawfaq_CV_en.pdf'; ['cvBtn', 'cvBtn2'].forEach(id => document.getElementById(id).setAttribute('href', cv));
   document.title = l === 'ar' ? 'أيمن توفيق | مطوّر Laravel وFlutter' : 'Ayman Tawfaq | Laravel & Flutter Developer';
+  if (typeof selPj === 'function' && projI >= 0) selPj(projI);
   applyCam(curP);
 }
 const setLink = (id, url) => { const a = document.getElementById(id); if (url) a.href = url; else a.style.display = 'none'; };
@@ -243,6 +274,15 @@ document.getElementById('langBtn').onclick = () => applyLang(LANG === 'ar' ? 'en
 const goTo = id => { const k = IDS.indexOf(id); if (k >= 0) scrollTo({ top: k * innerHeight, behavior: 'smooth' }); };
 document.querySelectorAll('[data-go]').forEach(e => e.addEventListener('click', ev => { ev.preventDefault(); goTo(e.dataset.go); }));
 applyLang(LANG);
+/* project showcase UI */
+const pvc = document.getElementById('pvc'), pvg = pvc.getContext('2d'), pvName = document.getElementById('pvname'), pvDesc = document.getElementById('pvdesc'), pvChips = document.getElementById('pvchips'), pvBtns = [...document.querySelectorAll('[data-pj]')];
+let lastUser = -1e9;
+function drawPv() { if (projI < 0) return; const im = pjGet(projI), iw = im.naturalWidth || im.width, ih = im.naturalHeight || im.height, sc = Math.max(1600 / iw, 700 / ih); pvg.fillStyle = '#061219'; pvg.fillRect(0, 0, 1600, 700); pvg.drawImage(im, (1600 - iw * sc) / 2, 0, iw * sc, ih * sc); }
+pvHooks.push(drawPv);
+function selPj(i, user) { if (user) lastUser = performance.now(); projI = i; const p = PJ[i]; pvBtns.forEach((b, k) => b.classList.toggle('on', k === i)); pvName.textContent = p.id + '.app'; pvDesc.innerHTML = T[LANG]['p' + (i + 1)]; pvChips.innerHTML = p.stack.map(t => '<s>' + t + '</s>').join(''); document.getElementById('pv').style.setProperty('--pc', p.col); drawPv(); }
+pvBtns.forEach((b, k) => { b.addEventListener('click', () => selPj(k, true)); b.addEventListener('mouseenter', () => selPj(k, true)); });
+if (STATIC_T === null) setInterval(() => { if (curP > .6 && curP < 1.5 && performance.now() - lastUser > 7000) selPj((projI + 1) % PJ.length); }, 4500);
+const PQ = q.get('proj'); selPj(PQ !== null ? +PQ : 0);
 /* picking */
 const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
 function pick(ev) { ptr.set(ev.clientX / innerWidth * 2 - 1, -(ev.clientY / innerHeight) * 2 + 1); ray.setFromCamera(ptr, cam); const hit = ray.intersectObjects(scene.children, true).find(h => { let o = h.object; while (o) { if (o.userData && o.userData.go) return true; o = o.parent; } return false; }); if (!hit) return null; let o = hit.object; while (o && !(o.userData && o.userData.go)) o = o.parent; return o.userData.go; }
@@ -253,7 +293,8 @@ addEventListener('pointermove', ev => { if (ev.target.closest('.card,header') ||
 let comp = null; function buildComp() { if (!DK) return; comp = new EffectComposer(r); comp.setSize(W, H); comp.addPass(new RenderPass(scene, cam)); comp.addPass(new UnrealBloomPass(new THREE.Vector2(W, H), .2, .4, .8)); comp.addPass(new OutputPass()); } buildComp();
 addEventListener('resize', () => { W = innerWidth; H = innerHeight; asp = W / H; r.setSize(W, H); if (comp) comp.setSize(W, H); applyCam(curP); });
 const dotsEl = [...document.querySelectorAll('.dots i')], navEl = [...document.querySelectorAll('nav a')];
-function frame(t) { anim.forEach(f => f(t)); rgbLight.color.setHSL((t * .06) % 1, .9, .55); rgbLight2.color.setHSL((t * .06 + .5) % 1, .9, .55); comp ? comp.render() : r.render(scene, cam); }
+function frame(t) {
+  const tg = (curP > .45 && curP < 1.55) ? 1 : 0; projA = STATIC_T !== null ? tg : projA + (tg - projA) * .1; pmx += (tmx - pmx) * .05; pmy += (tmy - pmy) * .05; anim.forEach(f => f(t)); rgbLight.color.setHSL((t * .06) % 1, .9, .55); rgbLight2.color.setHSL((t * .06 + .5) % 1, .9, .55); comp ? comp.render() : r.render(scene, cam); }
 if (STATIC_T !== null) { const go = () => { applyCam(curP); frame(STATIC_T); }; go(); let n = 0; const again = () => { go(); if (++n < 20) requestAnimationFrame(again); else window.__ready = true; }; requestAnimationFrame(again); }
 else { const t0 = performance.now(); const loop = () => { if (DBG === null) tgtP = readScroll(); curP += (tgtP - curP) * .09; applyCam(curP); const near = Math.round(curP); dotsEl.forEach((d, k) => d.classList.toggle('on', k === near)); navEl.forEach((a, k) => a.classList.toggle('on', k === near)); frame((performance.now() - t0) / 1000); requestAnimationFrame(loop); }; loop(); }
 
